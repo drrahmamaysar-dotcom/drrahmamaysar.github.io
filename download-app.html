@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل تطبيق دكتورة رحمة ميسر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="#47B5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                العودة للموقع
+            </a>
+        </div>
+    </header>
+
+    <!-- Download Section -->
+    <section class="app-download-section">
+        <div class="container">
+            <div class="download-content">
+                <!-- شعار التطبيق -->
+                <div class="app-logo-section">
+                    <div class="app-logo">
+                        <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="appGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#47B5FF;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#FFC72C;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#22C55E;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="60" cy="60" r="55" fill="url(#appGradient)" opacity="0.1"/>
+                            <circle cx="60" cy="60" r="50" fill="url(#appGradient)" opacity="0.2"/>
+                            <circle cx="60" cy="60" r="45" fill="url(#appGradient)" opacity="0.3"/>
+                            <!-- أيقونة التطبيق -->
+                            <path d="M60 30 C60 30 65 25 75 25 L85 25 C90 25 92.5 27.5 92.5 32.5 L92.5 67.5 C92.5 72.5 90 75 85 75 L75 75 C65 75 60 70 60 70" stroke="#47B5FF" stroke-width="3" fill="none"/>
+                            <circle cx="60" cy="45" r="8" fill="#47B5FF"/>
+                            <path d="M60 53 L60 65" stroke="#47B5FF" stroke-width="3"/>
+                            <circle cx="45" cy="60" r="4" fill="#FFC72C"/>
+                            <circle cx="75" cy="60" r="4" fill="#22C55E"/>
+                        </svg>
+                    </div>
+                    <h1 class="app-title">تطبيق دكتورة رحمة ميسر</h1>
+                    <p class="app-subtitle">رفيقك في رحلة تطوير مهارات أطفالك</p>
+                </div>
+
+                <!-- أزرار التحميل -->
+                <div class="download-buttons">
+                    <div class="download-section">
+                        <h3>حمل التطبيق الآن</h3>
+                        <div class="download-options">
+                            <!-- تحميل من MediaFire -->
+                            <a href="https://www.mediafire.com/file/w8gio4f167tyd78/Rahma_Maysar_App.zip/file" target="_blank" class="download-btn direct-download">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 15L12 3" stroke="#FFFFFF" stroke-width="2"/>
+                                    <path d="M7 9L12 4L17 9" stroke="#FFFFFF" stroke-width="2"/>
+                                    <path d="M5 21H19" stroke="#FFFFFF" stroke-width="2"/>
+                                </svg>
+                                <div class="download-info">
+                                    <span class="download-title">تحميل من MediaFire</span>
+                                    <span class="download-size">ZIP - احفظ الملف</span>
+                                </div>
+                            </a>
+
+                            <!-- زر المشاركة -->
+                            <button class="download-btn share-btn" onclick="shareApp()">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 12V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V12" stroke="#47B5FF" stroke-width="2"/>
+                                    <path d="M16 6L12 2L8 6" stroke="#47B5FF" stroke-width="2"/>
+                                    <path d="M12 2V15" stroke="#47B5FF" stroke-width="2"/>
+                                </svg>
+                                <div class="download-info">
+                                    <span class="download-title">مشاركة</span>
+                                    <span class="download-size">ارسل الرابط</span>
+                                </div>
+                            </button>
+                        </div>
+                        <!-- معلومات إضافية -->
+                        <div class="download-info-text">
+                            <p>ℹ️ سيتم تحميل الملف من MediaFire - منصة تحميل آمنة وموثوقة</p>
+                            <p>⚠️ ستحتاج لاستخراج ملف ZIP أولاً قبل التثبيت</p>
+                            <p>✅ التطبيق متوافق مع جميع أجهزة أندرويد</p>
+                        </div>
+                    </div>
+
+                    <!-- إرشادات التثبيت -->
+                    <div class="installation-guide">
+                        <h3>خطوات التثبيت</h3>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">انقر على "تحميل من MediaFire" لفتح الصفحة</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">حمّل ملف ZIP واحفظه في الهاتف</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">استخرج ملف ZIP باستخدام أي تطبيق استخراج</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-text">فعّل "مصادر غير معروفة" وثبّت التطبيق</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <div class="step-text">استمتع بجميع ميزات التطبيق</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ميزات التطبيق -->
+                <div class="app-features">
+                    <h3>مميزات التطبيق</h3>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">🎮</div>
+                            <h4>ألعاب تفاعلية</h4>
+                            <p>ألعاب تعليمية متخصصة لتطوير المهارات</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🤖</div>
+                            <h4>مساعد ذكي</h4>
+                            <p>استشارات متخصصة متاحة 24/7</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📚</div>
+                            <h4>دلائل تدريبية</h4>
+                            <p>مصادر شاملة للوالدين والمعلمين</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📱</div>
+                            <h4>حجز مباشر</h4>
+                            <p>احجز موعدك بسهولة عبر التطبيق</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📊</div>
+                            <h4>تتبع التقدم</h4>
+                            <p>راقب تطور الطفل ومهاراته</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎯</div>
+                            <h4>خطط مخصصة</h4>
+                            <p>برامج تعليمية مخصصة لكل طفل</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- معلومات المطور -->
+                <div class="developer-info">
+                    <div class="developer-card">
+                        <div class="developer-avatar">
+                            <img src="dr_rahma_website/imgs/dr_rahma_photo.jpg" alt="دكتورة رحمة ميسر">
+                        </div>
+                        <div class="developer-details">
+                            <h3>دكتورة رحمة ميسر</h3>
+                            <p>أخصائية تخاطب وتعديل سلوك</p>
+                            <div class="credentials">
+                                <span class="credential">ماجستير التربية الخاصة</span>
+                                <span class="credential">5+ سنوات خبرة</span>
+                                <span class="credential">متخصصة في ذوي الاحتياجات</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الأسئلة الشائعة -->
+                <div class="faq-section">
+                    <h3>الأسئلة الشائعة</h3>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>هل التطبيق مجاني؟</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                نعم، التطبيق مجاني بالكامل مع جميع الميزات.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>هل يعمل على جميع أجهزة أندرويد؟</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                يعمل على أندرويد 5.0 فما فوق.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>هل يحتاج إنترنت؟</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                بعض الميزات تحتاج إنترنت، والألعاب تعمل بدون إنترنت.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="download-footer">
+        <div class="container">
+            <p>&copy; 2025 دكتورة رحمة ميسر. جميع الحقوق محفوظة.</p>
+            <div class="contact-info">
+                <a href="https://wa.me/201027986106" target="_blank">تواصل معنا عبر واتساب</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // وظيفة المشاركة
+        function shareApp() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'تطبيق دكتورة رحمة ميسر',
+                    text: 'تطبيق رائع لتعليم وتطوير مهارات الأطفال ذوي الاحتياجات الخاصة',
+                    url: window.location.origin + '/download-app.html'
+                });
+            } else {
+                // للمتصفحات التي لا تدعم Web Share API
+                const url = window.location.origin + '/download-app.html';
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('تم نسخ رابط التطبيق إلى الحافظة!');
+                });
+            }
+        }
+
+        // تأثيرات التفاعل مع FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                
+                // إغلاق جميع العناصر الأخرى
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('open');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                    otherItem.querySelector('.faq-toggle').textContent = '+';
+                });
+                
+                // فتح العنصر الحالي إذا لم يكن مفتوحاً
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    question.querySelector('.faq-toggle').textContent = '−';
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة أوجد التشابه بين الصور - 10 مستويات - دكتورة رحمة ميسر</title>
+    <meta name="description" content="لعبة تفاعلية ممتعة لتطوير مهارات التعرف على الأشكال والألوان للأطفال ذوي الاحتياجات الخاصة">
+    <meta name="keywords" content="ألعاب تعليمية, تشابه الصور, ذوي الاحتياجات الخاصة, تطوير المهارات">
+    <meta name="author" content="دكتورة رحمة ميسر">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    
+    <style>
+        /* متغيرات CSS للعبة التشابه */
+        :root {
+            --primary-color: #3B82F6;
+            --success-color: #10B981;
+            --warning-color: #F59E0B;
+            --error-color: #EF4444;
+            --purple-color: #8B5CF6;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --text-muted: #9CA3AF;
+            --border-radius: 20px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', 'Tajawal', Arial, sans-serif;
+            background: var(--gradient-bg);
+            min-height: 100vh;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* التصميم الرئيسي للصفحة */
+        .similarity-game-page {
+            padding: 2rem 0;
+        }
+
+        /* الهيدر */
+        .games-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .games-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .games-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        /* منتقي المستوى */
+        .level-selector {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .level-selector h3 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .level-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 3px solid #E5E7EB;
+            border-radius: 15px;
+            padding: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .level-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .level-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .level-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+
+        .level-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .level-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .level-description {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* منطقة اللعبة */
+        .game-area {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 3px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .game-info {
+            margin-bottom: 2.5rem;
+        }
+
+        .game-title {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .game-description {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            text-align: center;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* شريط التقدم */
+        .progress-container {
+            margin: 2rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 16px;
+            background: rgba(229, 231, 235, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color), var(--primary-color));
+            transition: width 0.6s ease;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* الإحصائيات */
+        .game-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* منطقة اللعب */
+        .play-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin: 3rem 0;
+        }
+
+        .target-section,
+        .choices-section {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .target-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 4px solid var(--primary-color);
+            margin: 0 auto;
+            display: block;
+            object-fit: cover;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .target-image:hover {
+            transform: scale(1.05);
+        }
+
+        .choices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.2rem;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .choice-item {
+            background: white;
+            border: 4px solid #E5E7EB;
+            border-radius: 15px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            user-select: none;
+        }
+
+        .choice-item:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .choice-item:active {
+            transform: scale(0.95);
+        }
+
+        .choice-item.correct {
+            border-color: var(--success-color);
+            background: rgba(16, 185, 129, 0.1);
+            animation: successPulse 0.8s ease-out, successGlow 1s ease-out;
+        }
+
+        .choice-item.incorrect {
+            border-color: var(--error-color);
+            background: rgba(239, 68, 68, 0.1);
+            animation: shake 0.6s ease-out;
+        }
+
+        /* تأثيرات النجاح */
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes successGlow {
+            0% { box-shadow: 0 0 0 rgba(16, 185, 129, 0); }
+            50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); }
+            100% { box-shadow: 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+            20%, 40%, 60%, 80% { transform: translateX(8px); }
+        }
+
+        @keyframes celebration {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(5deg); }
+            50% { transform: scale(1.2) rotate(-5deg); }
+            75% { transform: scale(1.1) rotate(3deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .celebration {
+            animation: celebration 1s ease-in-out;
+        }
+
+        /* عناصر التحكم */
+        .game-controls {
+            text-align: center;
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-control {
+            background: var(--primary-color);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-control:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-control:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-success {
+            background: var(--success-color);
+        }
+
+        .btn-success:hover {
+            background: #059669;
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-warning {
+            background: var(--warning-color);
+        }
+
+        .btn-warning:hover {
+            background: #D97706;
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-purple {
+            background: var(--purple-color);
+        }
+
+        .btn-purple:hover {
+            background: #7C3AED;
+            box-shadow: 0 6px 18px rgba(139, 92, 246, 0.4);
+        }
+
+        /* رسائل التنبيه */
+        .game-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+            min-width: 400px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border: 4px solid rgba(59, 130, 246, 0.3);
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .message-text {
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-weight: 500;
+            white-space: pre-line;
+        }
+
+        .message-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .games-title {
+                font-size: 2.2rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .level-selector,
+            .game-area {
+                margin: 1rem 0;
+                padding: 2rem;
+            }
+            
+            .levels-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+            
+            .play-area {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .target-image {
+                width: 180px;
+                height: 180px;
+                font-size: 6rem;
+            }
+            
+            .choices-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 450px;
+            }
+            
+            .choice-item {
+                font-size: 2.5rem;
+                padding: 0.8rem;
+            }
+            
+            .game-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-control {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .games-title {
+                font-size: 1.8rem;
+            }
+            
+            .level-selector h3 {
+                font-size: 1.6rem;
+            }
+            
+            .game-title {
+                font-size: 1.6rem;
+            }
+            
+            .game-description {
+                font-size: 1.1rem;
+            }
+            
+            .target-image {
+                width: 150px;
+                height: 150px;
+                font-size: 5rem;
+            }
+            
+            .choices-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .choice-item {
+                font-size: 2rem;
+                padding: 0.6rem;
+            }
+            
+            .game-message {
+                min-width: 300px;
+                padding: 2rem;
+            }
+            
+            .message-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* تحسينات إضافية للأطفال ذوي الاحتياجات الخاصة */
+        .choice-item:focus {
+            outline: 4px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .btn-control:focus {
+            outline: 4px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* تأثيرات بصرية إضافية */
+        .level-card:nth-child(1) { border-color: var(--success-color); }
+        .level-card:nth-child(2) { border-color: var(--primary-color); }
+        .level-card:nth-child(3) { border-color: var(--purple-color); }
+        .level-card:nth-child(4) { border-color: var(--warning-color); }
+        .level-card:nth-child(5) { border-color: var(--error-color); }
+        .level-card:nth-child(6) { border-color: #ec4899; }
+        .level-card:nth-child(7) { border-color: #06b6d4; }
+        .level-card:nth-child(8) { border-color: #84cc16; }
+        .level-card:nth-child(9) { border-color: #f97316; }
+        .level-card:nth-child(10) { border-color: #a855f7; }
+
+        /* أنيميشن تحميل */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="similarity-game-page">
+        <div class="container">
+            <!-- الهيدر -->
+            <div class="games-header">
+                <h1 class="games-title">
+                    <span>🎯</span>
+                    <span>أوجد التشابه بين الصور</span>
+                </h1>
+                <p class="games-subtitle">طور مهاراتك في التعرف على الأشكال والألوان مع ألعاب تفاعلية ممتعة - الآن 10 مستويات!</p>
+            </div>
+
+            <!-- منتقي المستوى -->
+            <div class="level-selector" id="levelSelector">
+                <h3>اختر مستواك للبدء</h3>
+                <div class="levels-grid">
+                    <div class="level-card" data-level="1" tabindex="0">
+                        <span class="level-number">1</span>
+                        <div class="level-name">مبتدئ</div>
+                        <div class="level-description">2 اختيارات<br>ألوان واضحة وبسيطة</div>
+                    </div>
+                    <div class="level-card" data-level="2" tabindex="0">
+                        <span class="level-number">2</span>
+                        <div class="level-name">سهل</div>
+                        <div class="level-description">3 اختيارات<br>أحجام وأشكال مختلفة</div>
+                    </div>
+                    <div class="level-card" data-level="3" tabindex="0">
+                        <span class="level-number">3</span>
+                        <div class="level-name">متوسط</div>
+                        <div class="level-description">4 اختيارات<br>أشكال متنوعة ومعقدة</div>
+                    </div>
+                    <div class="level-card" data-level="4" tabindex="0">
+                        <span class="level-number">4</span>
+                        <div class="level-name">صعب</div>
+                        <div class="level-description">5 اختيارات<br>تفاصيل دقيقة ومتطورة</div>
+                    </div>
+                    <div class="level-card" data-level="5" tabindex="0">
+                        <span class="level-number">5</span>
+                        <div class="level-name">خبير</div>
+                        <div class="level-description">6 اختيارات<br>تحدي متقدم للمتخصصين</div>
+                    </div>
+                    <div class="level-card" data-level="6" tabindex="0">
+                        <span class="level-number">6</span>
+                        <div class="level-name">ماهر جداً</div>
+                        <div class="level-description">7 اختيارات<br>تحدي معقد للمتفوقين</div>
+                    </div>
+                    <div class="level-card" data-level="7" tabindex="0">
+                        <span class="level-number">7</span>
+                        <div class="level-name">متخصص</div>
+                        <div class="level-description">8 اختيارات<br>مستوى احترافي متقدم</div>
+                    </div>
+                    <div class="level-card" data-level="8" tabindex="0">
+                        <span class="level-number">8</span>
+                        <div class="level-name">احترافي</div>
+                        <div class="level-description">9 اختيارات<br>تحدي الخبراء المحترفين</div>
+                    </div>
+                    <div class="level-card" data-level="9" tabindex="0">
+                        <span class="level-number">9</span>
+                        <div class="level-name">أسطوري</div>
+                        <div class="level-description">10 اختيارات<br>أعلى مستويات الدقة</div>
+                    </div>
+                    <div class="level-card" data-level="10" tabindex="0">
+                        <span class="level-number">10</span>
+                        <div class="level-name">السيد المطلق</div>
+                        <div class="level-description">12 اختيارات<br>التحدي النهائي للعظماء</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منطقة اللعبة -->
+            <div class="game-area" id="gameArea">
+                <div class="game-info">
+                    <h2 class="game-title" id="gameTitle">ابحث عن الصورة المشابهة</h2>
+                    <p class="game-description" id="gameDescription">اختر الصورة التي تشبه الصورة الهدف من الأسفل</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="game-stats">
+                        <div class="stat">
+                            <div class="stat-label">المستوى الحالي</div>
+                            <div class="stat-value" id="currentLevel">1</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">الإجابات الصحيحة</div>
+                            <div class="stat-value" id="correctAnswers">0</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">إجمالي المحاولات</div>
+                            <div class="stat-value" id="attempts">0</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">السؤال رقم</div>
+                            <div class="stat-value" id="questionNumber">1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="play-area">
+                    <div class="target-section">
+                        <h3 class="section-title">
+                            <span>🎯</span>
+                            <span>الصورة الهدف</span>
+                        </h3>
+                        <div id="targetImage" class="target-image" role="img" aria-label="الصورة الهدف">
+                            ⭐
+                        </div>
+                    </div>
+                    
+                    <div class="choices-section">
+                        <h3 class="section-title">
+                            <span>👆</span>
+                            <span>اختر الصورة المشابهة</span>
+                        </h3>
+                        <div class="choices-grid" id="choicesGrid" role="group" aria-label="خيارات الإجابة">
+                            <!-- الاختيارات ستُضاف هنا بواسطة JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button class="btn-control btn-warning" onclick="nextQuestion()" id="nextBtn">
+                        <span>السؤال التالي</span>
+                        <span>➡️</span>
+                    </button>
+                    <button class="btn-control btn-success" onclick="restartLevel()" id="restartBtn">
+                        <span>إعادة المستوى</span>
+                        <span>🔄</span>
+                    </button>
+                    <button class="btn-control btn-purple" onclick="backToLevels()" id="backBtn">
+                        <span>العودة للمستويات</span>
+                        <span>🏠</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- رسائل التنبيه -->
+    <div class="game-message" id="gameMessage" role="dialog" aria-modal="true" aria-labelledby="messageText">
+        <span class="message-icon" id="messageIcon">🎉</span>
+        <div class="message-text" id="messageText"></div>
+        <button class="btn-control btn-success" onclick="hideMessage()" id="messageBtn">
+            <span>رائع! استمر</span>
+            <span>👏</span>
+        </button>
+    </div>
+
+    <script>
+        // بيانات اللعبة - أسئلة وأجوبة
+        const gameData = {
+            1: {
+                level: 1,
+                title: "مبتدئ - الألوان الأساسية",
+                description: "تعرف على الألوان الأساسية والواضحة",
+                questions: [
+                    {
+                        target: "🔴",
+                        choices: ["🔴", "🔵", "⚫"],
+                        description: "ابحث عن الدائرة الحمراء",
+                        hint: "اللون الأحمر مثل لون التفاح الناضج"
+                    },
+                    {
+                        target: "🟡",
+                        choices: ["🟡", "🟢", "🟠"],
+                        description: "ابحث عن الدائرة الصفراء",
+                        hint: "اللون الأصفر مثل لون الشمس"
+                    },
+                    {
+                        target: "🔵",
+                        choices: ["🔵", "🔴", "⚫"],
+                        description: "ابحث عن الدائرة الزرقاء",
+                        hint: "اللون الأزرق مثل لون السماء"
+                    },
+                    {
+                        target: "🟢",
+                        choices: ["🟢", "🟡", "🔴"],
+                        description: "ابحث عن الدائرة الخضراء",
+                        hint: "اللون الأخضر مثل لون العشب"
+                    },
+                    {
+                        target: "🟠",
+                        choices: ["🟠", "🟡", "🔵"],
+                        description: "ابحث عن الدائرة البرتقالية",
+                        hint: "اللون البرتقالي مثل لون البرتقالة"
+                    }
+                ]
+            },
+            2: {
+                level: 2,
+                title: "سهل - الأشكال والحيوانات",
+                description: "تعرف على الحيوانات والأشكال المألوفة",
+                questions: [
+                    {
+                        target: "🍎",
+                        choices: ["🍎", "🍌", "🍊", "🍇"],
+                        description: "ابحث عن التفاح الأحمر",
+                        hint: "فاكهة حمراء مفضلة لدى الجميع"
+                    },
+                    {
+                        target: "🧸",
+                        choices: ["🧸", "🐱", "🐶", "🐰"],
+                        description: "ابحث عن الدب Teddy",
+                        hint: "لعبة محشوة مفضلة للأطفال"
+                    },
+                    {
+                        target: "🌸",
+                        choices: ["🌸", "🌼", "🌻", "🌷"],
+                        description: "ابحث عن زهرة الكرز",
+                        hint: "زهرة بيضاء جميلة في الربيع"
+                    },
+                    {
+                        target: "⭐",
+                        choices: ["⭐", "🌙", "☀️", "⚡"],
+                        description: "ابحث عن النجمة",
+                        hint: "تشع في السماء ليلاً"
+                    },
+                    {
+                        target: "🚗",
+                        choices: ["🚗", "🚲", "🚁", "🚂"],
+                        description: "ابحث عن السيارة",
+                        hint: "مركبة بأربع عجلات"
+                    }
+                ]
+            },
+            3: {
+                level: 3,
+                title: "متوسط - أشياء يومية",
+                description: "تعرف على أشياء من الحياة اليومية",
+                questions: [
+                    {
+                        target: "🐱",
+                        choices: ["🐱", "🐶", "🐭", "🐰", "🦁"],
+                        description: "ابحث عن القطة",
+                        hint: "حيوان أليف ي miaw"
+                    },
+                    {
+                        target: "🏠",
+                        choices: ["🏠", "🏫", "🏥", "🏢", "🏰"],
+                        description: "ابحث عن المنزل",
+                        hint: "مكان السكن الأساسي"
+                    },
+                    {
+                        target: "⚽",
+                        choices: ["⚽", "🏀", "🎾", "🏐", "🥎"],
+                        description: "ابحث عن كرة القدم",
+                        hint: "كرة رياضة شعبية في العالم"
+                    },
+                    {
+                        target: "📚",
+                        choices: ["📚", "✏️", "📝", "📖", "🖊️"],
+                        description: "ابحث عن الكتب",
+                        hint: "تحتوي على معلومات ونصوص"
+                    },
+                    {
+                        target: "🎵",
+                        choices: ["🎵", "🎶", "🎸", "🎤", "🎹"],
+                        description: "ابحث عن النوتة الموسيقية",
+                        hint: "رمز في عالم الموسيقى"
+                    }
+                ]
+            },
+            4: {
+                level: 4,
+                title: "صعب - رموز معقدة",
+                description: "رموز وأشكال أكثر تعقيداً",
+                questions: [
+                    {
+                        target: "🦄",
+                        choices: ["🦄", "🐉", "🦅", "🦋", "🐝"],
+                        description: "ابحث عن وحيد القرن",
+                        hint: "حيوان أسطوري بقرن واحد"
+                    },
+                    {
+                        target: "🎨",
+                        choices: ["🎨", "🖼️", "🎭", "🎪", "🎯"],
+                        description: "ابحث عن فرشاة الرسم",
+                        hint: "أداة للرسم والطلاء"
+                    },
+                    {
+                        target: "🧠",
+                        choices: ["🧠", "👁️", "👂", "👃", "👄"],
+                        description: "ابحث عن الدماغ",
+                        hint: "أهم عضو في الجسم للتفكير"
+                    },
+                    {
+                        target: "🌈",
+                        choices: ["🌈", "☁️", "🌙", "⭐", "☀️"],
+                        description: "ابحث عن قوس قزح",
+                        hint: "ظهور ألوان متعددة في السماء"
+                    },
+                    {
+                        target: "🎁",
+                        choices: ["🎁", "💝", "🎂", "🎈", "🎊"],
+                        description: "ابحث عن الهدية",
+                        hint: "نقدمها في المناسبات السعيدة"
+                    }
+                ]
+            },
+            5: {
+                level: 5,
+                title: "خبير - تحدي متقدم",
+                description: "التحدي الأكبر للمتخصصين",
+                questions: [
+                    {
+                        target: "🦋",
+                        choices: ["🦋", "🐞", "🐜", "🐝", "🪲", "🪰"],
+                        description: "ابحث عن الفراشة الملونة",
+                        hint: "حشرة جميلة بألوان زاهية تطير بين الزهور"
+                    },
+                    {
+                        target: "🏰",
+                        choices: ["🏰", "🗼", "🗽", "🕌", "⛩️", "🏛️"],
+                        description: "ابحث عن القلعة",
+                        hint: "مبنى كبير وقوي في العصور القديمة"
+                    },
+                    {
+                        target: "🌟",
+                        choices: ["🌟", "✨", "💫", "⭐", "🪐", "🌙"],
+                        description: "ابحث عن النجمة المتلألئة",
+                        hint: "تشع في السماء بأشعة متلألئة"
+                    },
+                    {
+                        target: "🎭",
+                        choices: ["🎭", "🎪", "🎨", "🎬", "🎵", "🎶"],
+                        description: "ابحث عن قناع المسرح",
+                        hint: "رمز فنون المسرح والتمثيل"
+                    },
+                    {
+                        target: "🏺",
+                        choices: ["🏺", "🗿", "🗽", "🗼", "🏛️", "🏰"],
+                        description: "ابحث عن الإبريق اليوناني",
+                        hint: "إناء تقليدي من الحضارة اليونانية"
+                    }
+                ]
+            },
+            6: {
+                level: 6,
+                title: "ماهر جداً - تحدي معقد",
+                description: "مستوى متقدم يتطلب دقة عالية",
+                questions: [
+                    {
+                        target: "🐙",
+                        choices: ["🐙", "🐳", "🐬", "🦑", "🦈", "🐠", "🐟"],
+                        description: "ابحث عن الأخطبوط",
+                        hint: "حيوان بحري بثمانية أذرع"
+                    },
+                    {
+                        target: "🌋",
+                        choices: ["🌋", "⛰️", "🏔️", "🗻", "🏞️", "🏜️", "🏖️"],
+                        description: "ابحث عن البركان",
+                        hint: "جبل يطلق الحمم والرماد"
+                    },
+                    {
+                        target: "🦸‍♂️",
+                        choices: ["🦸‍♂️", "🦸‍♀️", "🦹‍♂️", "🦹‍♀️", "🦸‍♂️", "🦹‍♂️", "🦸‍♀️"],
+                        description: "ابحث عن البطل الخارق",
+                        hint: "شخصية خيالية بقوى خارقة"
+                    },
+                    {
+                        target: "🏆",
+                        choices: ["🏆", "🥇", "🥈", "🥉", "🏅", "🎖️", "🎗️"],
+                        description: "ابحث عن كأس البطل",
+                        hint: "جائزة للإنجاز والتميز"
+                    },
+                    {
+                        target: "🎮",
+                        choices: ["🎮", "🕹️", "🎯", "🎲", "🧩", "🎪", "🎭"],
+                        description: "ابحث عن وحدة التحكم",
+                        hint: "جهاز للعب الألعاب الإلكترونية"
+                    }
+                ]
+            },
+            7: {
+                level: 7,
+                title: "متخصص - مستوى احترافي",
+                description: "مستوى يتطلب خبرة عميقة",
+                questions: [
+                    {
+                        target: "🧬",
+                        choices: ["🧬", "🔬", "🧪", "⚗️", "🔭", "🩺", "🧿", "💊"],
+                        description: "ابحث عن الحمض النووي",
+                        hint: "رمز الجينات والوراثة"
+                    },
+                    {
+                        target: "🏛️",
+                        choices: ["🏛️", "🏯", "🏰", "🏟️", "🎭", "🎪", "🏢", "🏬"],
+                        description: "ابحث عن المسرح اليوناني",
+                        hint: "مبنى تاريخي للمسرح والفن"
+                    },
+                    {
+                        target: "🔮",
+                        choices: ["🔮", "🌙", "⭐", "✨", "💫", "🕯️", "🏮", "🪄"],
+                        description: "ابحث عن كرة الكريستال",
+                        hint: "رمز السحر والتنجيم"
+                    },
+                    {
+                        target: "🦾",
+                        choices: ["🦾", "🦿", "🤖", "⚙️", "🔧", "🔨", "⚡", "🔋"],
+                        description: "ابحث عن الذراع الآلية",
+                        hint: "تقنية متقدمة من المستقبل"
+                    },
+                    {
+                        target: "🌌",
+                        choices: ["🌌", "🌠", "☄️", "🪐", "🌍", "🌟", "🌙", "☀️"],
+                        description: "ابحث عن المجرة",
+                        hint: "مجموعة ضخمة من النجوم والكواكب"
+                    }
+                ]
+            },
+            8: {
+                level: 8,
+                title: "احترافي - تحدي الخبراء",
+                description: "أعلى مستويات المهارة والاحترافية",
+                questions: [
+                    {
+                        target: "⚡",
+                        choices: ["⚡", "🔥", "🌪️", "🌊", "🌋", "💫", "🌈", "⭐", "💎"],
+                        description: "ابحث عن البرق",
+                        hint: "ظاهرة كهربائية طبيعية"
+                    },
+                    {
+                        target: "🧠",
+                        choices: ["🧠", "👁️", "👂", "👃", "👄", "🤲", "🦵", "💡", "✨"],
+                        description: "ابحث عن الدماغ",
+                        hint: "مركز التفكير والذكاء"
+                    },
+                    {
+                        target: "🌪️",
+                        choices: ["🌪️", "💨", "🌬️", "🍃", "🌊", "☁️", "🌫️", "⚡", "🌧️"],
+                        description: "ابحث عن إعصار",
+                        hint: "دوامة هوائية مدمرة"
+                    },
+                    {
+                        target: "🔥",
+                        choices: ["🔥", "🌋", "⭐", "💫", "☀️", "💡", "🔋", "⚡", "🌟"],
+                        description: "ابحث عن النار",
+                        hint: "ظاهرة احتراق مع ضوء وحرارة"
+                    },
+                    {
+                        target: "💎",
+                        choices: ["💎", "💠", "🔶", "🔷", "🔸", "🔹", "♦️", "♥️", "⬡"],
+                        description: "ابحث عن الماسة",
+                        hint: "أثمن الأحجار الكريمة"
+                    }
+                ]
+            },
+            9: {
+                level: 9,
+                title: "أسطوري - أعلى الدقة",
+                description: "مستوى يتطلب تركيزاً مثالياً",
+                questions: [
+                    {
+                        target: "🎯",
+                        choices: ["🎯", "🏹", "🎪", "🎭", "🎨", "🎪", "🎬", "🎭", "🎨", "🎵"],
+                        description: "ابحث عن الهدف",
+                        hint: "هدف الدقة والإتقان"
+                    },
+                    {
+                        target: "🏆",
+                        choices: ["🏆", "👑", "🏅", "🥇", "🎖️", "🏵️", "🌟", "⭐", "💎", "👑"],
+                        description: "ابحث عن كأس البطل",
+                        hint: "رمز الفوز والتميز الأول"
+                    },
+                    {
+                        target: "🦄",
+                        choices: ["🦄", "🐉", "🦅", "🦋", "🐝", "🦋", "🦋", "🦋", "🦋", "🐉"],
+                        description: "ابحث عن وحيد القرن",
+                        hint: "حيوان أسطوري نادر"
+                    },
+                    {
+                        target: "🌈",
+                        choices: ["🌈", "🎨", "🖌️", "🖼️", "👨‍🎨", "👩‍🎨", "🎨", "🎨", "🖌️", "🌟"],
+                        description: "ابحث عن قوس قزح",
+                        hint: "ظهور ألوان متعددة في السماء"
+                    },
+                    {
+                        target: "⚡",
+                        choices: ["⚡", "💡", "✨", "💫", "🌟", "⭐", "⚡", "💥", "⚡", "🌟"],
+                        description: "ابحث عن البرق",
+                        hint: "طاقة كهربائية سريعة ومشرقة"
+                    }
+                ]
+            },
+            10: {
+                level: 10,
+                title: "السيد المطلق - التحدي النهائي",
+                description: "أعلى تحدي للمتخصصين الحقيقيين",
+                questions: [
+                    {
+                        target: "🌌",
+                        choices: ["🌌", "🌠", "☄️", "🪐", "🌍", "🌙", "☀️", "⭐", "🌌", "🌌", "🪐", "🌠"],
+                        description: "ابحث عن المجرة",
+                        hint: "عالم لا نهائي من النجوم"
+                    },
+                    {
+                        target: "🧬",
+                        choices: ["🧬", "🔬", "🧪", "⚗️", "🩺", "💊", "🔬", "🧬", "⚗️", "🧪", "💊", "🩺"],
+                        description: "ابحث عن الحمض النووي",
+                        hint: "كود الحياة والوراثة"
+                    },
+                    {
+                        target: "🦄",
+                        choices: ["🦄", "🐉", "🦅", "🦋", "🐝", "🪰", "🐞", "🦗", "🐜", "🦄", "🐉", "🦋"],
+                        description: "ابحث عن وحيد القرن",
+                        hint: "أسطورة طبيعية نادرة جداً"
+                    },
+                    {
+                        target: "🎭",
+                        choices: ["🎭", "🎪", "🎨", "🎬", "🎵", "🎶", "🎯", "🎲", "🎮", "🎭", "🎪", "🎨"],
+                        description: "ابحث عن قناع المسرح",
+                        hint: "فن متقدم ومعقد"
+                    },
+                    {
+                        target: "⚡",
+                        choices: ["⚡", "💥", "🔥", "🌪️", "🌊", "🌋", "🌙", "⭐", "🌌", "⚡", "💫", "✨"],
+                        description: "ابحث عن البرق",
+                        hint: "قوة الطبيعة الأقوى"
+                    }
+                ]
+            }
+        };
+
+        // متغيرات اللعبة
+        let currentGameLevel = null;
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+        let attempts = 0;
+        let gameStarted = false;
+        let answeredQuestions = 0;
+        let totalQuestions = 0;
+
+        // تهيئة اللعبة
+        function initializeGame() {
+            const levelCards = document.querySelectorAll('.level-card');
+            levelCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const level = parseInt(card.dataset.level);
+                    startLevel(level);
+                });
+                
+                // إضافة إمكانية التنقل بلوحة المفاتيح
+                card.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const level = parseInt(card.dataset.level);
+                        startLevel(level);
+                    }
+                });
+            });
+        }
+
+        // بدء مستوى جديد
+        function startLevel(level) {
+            currentGameLevel = level;
+            currentQuestion = 0;
+            correctAnswers = 0;
+            attempts = 0;
+            answeredQuestions = 0;
+            gameStarted = true;
+            
+            // إظهار منطقة اللعبة
+            document.getElementById('levelSelector').style.display = 'none';
+            document.getElementById('gameArea').style.display = 'block';
+            
+            // تحديث العنوان والوصف
+            const levelData = gameData[level];
+            document.getElementById('gameTitle').textContent = levelData.title;
+            document.getElementById('gameDescription').textContent = levelData.description;
+            totalQuestions = levelData.questions.length;
+            
+            // تحديث الإحصائيات
+            updateStats();
+            
+            // تحميل السؤال الأول
+            loadQuestion();
+        }
+
+        // تحميل سؤال
+        function loadQuestion() {
+            if (!gameData[currentGameLevel]) return;
+            
+            const questions = gameData[currentGameLevel].questions;
+            if (currentQuestion >= questions.length) {
+                completeLevel();
+                return;
+            }
+            
+            const question = questions[currentQuestion];
+            
+            // تحديث الصورة الهدف
+            const targetImage = document.getElementById('targetImage');
+            targetImage.textContent = question.target;
+            targetImage.setAttribute('aria-label', `الصورة الهدف: ${question.description}`);
+            
+            // تحديث وصف المهمة
+            document.getElementById('gameDescription').textContent = question.description;
+            
+            // تحديث رقم السؤال
+            document.getElementById('questionNumber').textContent = currentQuestion + 1;
+            
+            // إنشاء الاختيارات
+            createChoices(question.choices);
+            
+            // تحديث شريط التقدم
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+        }
+
+        // إنشاء الاختيارات مع ترتيب عشوائي
+        function createChoices(choices) {
+            const choicesGrid = document.getElementById('choicesGrid');
+            choicesGrid.innerHTML = '';
+            
+            // إنشاء مصفوفة من الفهارس وترتيبها عشوائياً
+            const shuffledIndices = choices.map((_, index) => index);
+            for (let i = shuffledIndices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
+            }
+            
+            // ترتيب الاختيارات حسب المصفوفة العشوائية
+            const shuffledChoices = shuffledIndices.map(index => choices[index]);
+            
+            shuffledChoices.forEach((choice, index) => {
+                const choiceItem = document.createElement('div');
+                choiceItem.className = 'choice-item';
+                choiceItem.dataset.choice = choice;
+                choiceItem.setAttribute('role', 'button');
+                choiceItem.setAttribute('tabindex', '0');
+                choiceItem.setAttribute('aria-label', `خيار ${index + 1}: ${choice}`);
+                
+                choiceItem.textContent = choice;
+                
+                // إضافة أحداث النقر ولوحة المفاتيح
+                choiceItem.addEventListener('click', () => checkAnswer(choice));
+                choiceItem.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        checkAnswer(choice);
+                    }
+                });
+                
+                choicesGrid.appendChild(choiceItem);
+            });
+        }
+
+        // فحص الإجابة
+        function checkAnswer(selectedChoice) {
+            const question = gameData[currentGameLevel].questions[currentQuestion];
+            const isCorrect = selectedChoice === question.target;
+            
+            attempts++;
+            answeredQuestions++;
+            
+            // تعطيل جميع الاختيارات مؤقتاً
+            const choiceItems = document.querySelectorAll('.choice-item');
+            choiceItems.forEach(item => {
+                item.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                correctAnswers++;
+                showCorrectAnswer(selectedChoice);
+                setTimeout(() => {
+                    currentQuestion++;
+                    loadQuestion();
+                }, 2000);
+            } else {
+                showIncorrectAnswer(selectedChoice);
+                setTimeout(() => {
+                    hideChoiceStates();
+                    // إعادة تفعيل الاختيارات
+                    choiceItems.forEach(item => {
+                        item.style.pointerEvents = 'auto';
+                    });
+                }, 1500);
+            }
+            
+            updateStats();
+        }
+
+        // إظهار الإجابة الصحيحة
+        function showCorrectAnswer(selectedChoice) {
+            const choiceItems = document.querySelectorAll('.choice-item');
+            const question = gameData[currentGameLevel].questions[currentQuestion];
+            
+            choiceItems.forEach(item => {
+                if (item.dataset.choice === question.target) {
+                    item.classList.add('correct');
+                } else if (item.dataset.choice === selectedChoice) {
+                    item.classList.add('incorrect');
+                }
+            });
+            
+            // إضافة تأثير الاحتفال للصورة الهدف
+            const targetImage = document.getElementById('targetImage');
+            targetImage.classList.add('celebration');
+            
+            // رسالة النجاح
+            let successMessages = [
+                "🎉 ممتاز! إجابة صحيحة!",
+                "🌟 رائع! هذا صحيح تماماً!",
+                "👏 برافو! استمر هكذا!",
+                "💪 ممتاز! أداء رائع!",
+                "🎯 صبايا! إجابة مذهلة!"
+            ];
+            
+            const randomMessage = successMessages[Math.floor(Math.random() * successMessages.length)];
+            showMessage(randomMessage, 'success');
+            
+            // إزالة تأثير الاحتفال بعد فترة
+            setTimeout(() => {
+                targetImage.classList.remove('celebration');
+            }, 1000);
+        }
+
+        // إظهار الإجابة الخاطئة
+        function showIncorrectAnswer(selectedChoice) {
+            const choiceItems = document.querySelectorAll('.choice-item');
+            choiceItems.forEach(item => {
+                if (item.dataset.choice === selectedChoice) {
+                    item.classList.add('incorrect');
+                }
+            });
+            
+            const question = gameData[currentGameLevel].questions[currentQuestion];
+            let encouragingMessages = [
+                "❌ ليس صحيحاً، حاول مرة أخرى!",
+                "💪 لا تستسلم! يمكنك فعلها!",
+                "🤗 حاول مرة أخرى، أنت تستطيع!",
+                "🌈 لا بأس، الخطأ جزء من التعلم!",
+                "⭐ حاول مرة أخرى، أنت تتقدم!"
+            ];
+            
+            const randomMessage = encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
+            showMessage(`${randomMessage}\n\n💡 تلميح: ${question.hint}`, 'error');
+        }
+
+        // إخفاء حالة الاختيارات
+        function hideChoiceStates() {
+            const choiceItems = document.querySelectorAll('.choice-item');
+            choiceItems.forEach(item => {
+                item.classList.remove('correct', 'incorrect');
+            });
+            
+            hideMessage();
+        }
+
+        // السؤال التالي
+        function nextQuestion() {
+            if (currentQuestion < gameData[currentGameLevel].questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+                hideChoiceStates();
+            }
+        }
+
+        // إعادة المستوى
+        function restartLevel() {
+            currentQuestion = 0;
+            correctAnswers = 0;
+            attempts = 0;
+            answeredQuestions = 0;
+            hideChoiceStates();
+            loadQuestion();
+            
+            showMessage("🔄 تم إعادة تشغيل المستوى!\n\nحظاً موفقاً في المحاولة الجديدة!", 'info');
+        }
+
+        // العودة للمستويات
+        function backToLevels() {
+            if (confirm("هل أنت متأكد من العودة لقائمة المستويات؟\nسيتم فقدان التقدم الحالي.")) {
+                document.getElementById('gameArea').style.display = 'none';
+                document.getElementById('levelSelector').style.display = 'block';
+                
+                currentGameLevel = null;
+                currentQuestion = 0;
+                correctAnswers = 0;
+                attempts = 0;
+                answeredQuestions = 0;
+                gameStarted = false;
+                
+                hideMessage();
+            }
+        }
+
+        // إكمال المستوى
+        function completeLevel() {
+            const totalQuestions = gameData[currentGameLevel].questions.length;
+            const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+            
+            let message = '';
+            let icon = '';
+            let buttonText = '';
+            
+            if (percentage >= 90) {
+                icon = '🏆';
+                message = `🎊 مبروك والتفوق!\nأنهيت المستوى ${currentGameLevel} بامتياز!\n\nالنتيجة: ${correctAnswers}/${totalQuestions} (${percentage}%)\n\n${generateCelebrationMessage()}`;
+                buttonText = 'ممتاز! 👑';
+            } else if (percentage >= 80) {
+                icon = '🎉';
+                message = `👏 ممتاز جداً!\nأنهيت المستوى ${currentGameLevel} بنجاح!\n\nالنتيجة: ${correctAnswers}/${totalQuestions} (${percentage}%)\n\nأنت متقدم جداً!`;
+                buttonText = 'رائع! 🌟';
+            } else if (percentage >= 60) {
+                icon = '👍';
+                message = `💪 عمل جيد!\nأنهيت المستوى ${currentGameLevel}\n\nالنتيجة: ${correctAnswers}/${totalQuestions} (${percentage}%)\n\nيمكنك المحاولة مرة أخرى لتحسين النتيجة`;
+                buttonText = 'جيد! 😊';
+            } else {
+                icon = '💪';
+                message = `🌱 لا تستسلم!\nالتعلم يحتاج للممارسة\n\nالنتيجة: ${correctAnswers}/${totalQuestions} (${percentage}%)\n\nحاول مرة أخرى وستتحسن!`;
+                buttonText = 'سأحاول مرة أخرى! 🚀';
+            }
+            
+            showMessage(`${icon}\n\n${message}`, percentage >= 60 ? 'success' : 'info');
+            
+            // تحديث شريط التقدم إلى 100%
+            document.getElementById('progressFill').style.width = '100%';
+            
+            // تحديث نص زر الرسالة
+            document.getElementById('messageBtn').innerHTML = `<span>${buttonText}</span><span>👏</span>`;
+        }
+
+        // رسائل تشجيعية متنوعة
+        function generateCelebrationMessage() {
+            const messages = [
+                "أداء استثنائي! أنت نجم حقيقي!",
+                "هذا هو المستوى المطلوب! استمر!",
+                "لا يُمكنني إلا أن أُهلل لك!",
+                "إنجاز مذهل يستحق الفخر!",
+                "أنت بطل حقيقي في هذه اللعبة!"
+            ];
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        // تحديث الإحصائيات
+        function updateStats() {
+            document.getElementById('currentLevel').textContent = currentGameLevel || 0;
+            document.getElementById('correctAnswers').textContent = correctAnswers;
+            document.getElementById('attempts').textContent = attempts;
+            document.getElementById('questionNumber').textContent = currentQuestion + 1;
+        }
+
+        // إظهار رسالة
+        function showMessage(message, type) {
+            const messageText = document.getElementById('messageText');
+            const messageIcon = document.getElementById('messageIcon');
+            const messageElement = document.getElementById('gameMessage');
+            
+            messageText.textContent = message;
+            
+            // تحديد الأيقونة حسب نوع الرسالة
+            switch(type) {
+                case 'success':
+                    messageIcon.textContent = '🎉';
+                    break;
+                case 'error':
+                    messageIcon.textContent = '💪';
+                    break;
+                case 'info':
+                    messageIcon.textContent = 'ℹ️';
+                    break;
+                default:
+                    messageIcon.textContent = '🎯';
+            }
+            
+            messageElement.style.display = 'block';
+        }
+
+        // إخفاء رسالة
+        function hideMessage() {
+            document.getElementById('gameMessage').style.display = 'none';
+        }
+
+        // إضافة اختصارات لوحة المفاتيح
+        document.addEventListener('keydown', function(e) {
+            // مفتاح Escape لإخفاء الرسائل
+            if (e.key === 'Escape') {
+                hideMessage();
+            }
+            
+            // أرقام 1-10 لاختيار المستوى
+            const keyNum = parseInt(e.key);
+            if (keyNum >= 1 && keyNum <= 10 && !gameStarted) {
+                if (gameData[keyNum]) {
+                    startLevel(keyNum);
+                }
+            }
+        });
+
+        // تهيئة اللعبة عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeGame();
+            
+            // إضافة رسالة ترحيب
+            setTimeout(() => {
+                showMessage('🎮 مرحباً بك في لعبة أوجد التشابه!\n\nاختر مستوى من الأعلى لبدء اللعب!\n\n💡 تلميح: يمكنك استخدام الأرقام 1-10 لاختيار المستوى\n\n✨ جديد: تم إضافة 5 مستويات جديدة!\n🎯 الآن 10 مستويات تحدي!\n🔀 الإجابات تأتي بترتيب عشوائي!\n\nحظاً موفقاً! 🎉', 'info');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

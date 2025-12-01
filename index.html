@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دكتورة رحمة ميسر - خبيرة التخاطب وتعديل السلوك لذوي الاحتياجات الخاصة</title>
+    <meta name="description" content="دكتورة رحمة ميسر، أخصائية تخاطب وتعديل سلوك متخصصة في رعاية ذوي الاحتياجات الخاصة. ألعاب تفاعية، تدريب أولياء الأمور والمعلمين، واستشارات متخصصة.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/games.css">
+    <link rel="stylesheet" href="styles/ai-chat.css">
+    <link rel="stylesheet" href="styles/doctor-photo-effects.css">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="modern-logo" width="60" height="60" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <!-- خلفية دائرية متدرجة -->
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#47B5FF;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#FFC72C;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#22C55E;stop-opacity:1" />
+                            </linearGradient>
+                            <radialGradient id="heartGradient" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#FF6B9D;stop-opacity:0.3" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- الدائرة الخارجية -->
+                        <circle class="outer-circle" cx="60" cy="60" r="55" fill="none" stroke="url(#logoGradient)" stroke-width="3" class="rotating-circle"/>
+                        
+                        <!-- الموجات الصوتية -->
+                        <path class="sound-wave wave1" d="M80 45 Q90 55 80 65" stroke="#47B5FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path class="sound-wave wave2" d="M85 35 Q100 60 85 85" stroke="#47B5FF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                        
+                        <!-- القلب (تعديل السلوك) -->
+                        <path class="heart-shape" d="M60 55 C60 50 65 45 70 45 C75 45 80 50 80 55 C80 60 75 65 70 70 C65 65 60 60 60 55 Z" fill="url(#heartGradient)" opacity="0.8"/>
+                        
+                        <!-- الحرف (التخاطب) -->
+                        <text class="speech-letter" x="60" y="52" text-anchor="middle" font-family="Tajawal, Amiri, Noto Sans Arabic, sans-serif" font-size="24" font-weight="bold" fill="#FFF8E7">ت</text>
+                        
+                        <!-- النجوم (الأطفال) -->
+                        <polygon class="star star1" points="35,25 37,32 44,32 38,36 40,43 35,39 30,43 32,36 26,32 33,32" fill="#FFC72C" opacity="0.8"/>
+                        <polygon class="star star2" points="95,25 97,32 104,32 98,36 100,43 95,39 90,43 92,36 86,32 93,32" fill="#22C55E" opacity="0.8"/>
+                        
+                        <!-- الشهادة الأكاديمية -->
+                        <rect class="certificate" x="30" y="75" width="25" height="18" rx="2" fill="#47B5FF" opacity="0.9"/>
+                        <rect class="certificate-inner" x="32" y="77" width="21" height="14" rx="1" fill="#FFF8E7"/>
+                        
+                        <!-- الدوائر الدائرية -->
+                        <circle class="orbit-circle orbit1" cx="60" cy="60" r="35" fill="none" stroke="#FFC72C" stroke-width="1" stroke-dasharray="5,5" opacity="0.6"/>
+                        <circle class="orbit-circle orbit2" cx="60" cy="60" r="40" fill="none" stroke="#22C55E" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+                    </svg>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                        <li><a href="#games" class="nav-link">الألعاب التفاعلية</a></li>
+                        <li><a href="#training" class="nav-link">التدريب والموارد</a></li>
+                        <li><a href="#about" class="nav-link">عن الدكتورة</a></li>
+                        <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="download-app.html" class="btn-download-app" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="#22C55E"/>
+                            <path d="M12 16V22" stroke="#22C55E" stroke-width="2"/>
+                            <path d="M8 18H16" stroke="#22C55E" stroke-width="2"/>
+                        </svg>
+                        تحميل التطبيق
+                    </a>
+                    <a href="https://wa.me/201027986106" class="btn-book" target="_blank">حجز موعد</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">دكتورة رحمة ميسر</h1>
+                    <h2 class="hero-subtitle">خبيرة التخاطب وتعديل السلوك لذوي الاحتياجات الخاصة</h2>
+                    <p class="hero-description">
+                        مرحباً بكم في منصتي المتخصصة في تطوير مهارات التخاطب وتعديل السلوك للأطفال ذوي الاحتياجات الخاصة. 
+                        هنا ستجدون ألعاباً تفاعلية، موارد تدريبية، وخدمات استشارية متخصصة لجميع أفراد الأسرة.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollToSection('games')">
+                            اكتشف الألعاب التفاعلية
+                        </button>
+                        <a href="https://wa.me/201027986106" class="btn-secondary" target="_blank">
+                            تواصل عبر واتساب
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="doctor-photo-container">
+                        <!-- الخلفية المتدرجة -->
+                        <div class="background-gradient"></div>
+                        
+                        <!-- الإطار الدائري المتحرك -->
+                        <div class="rotating-border">
+                            <div class="rotating-border-inner"></div>
+                        </div>
+                        
+                        <!-- النقاط المتحركة -->
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        <div class="floating-dot"></div>
+                        
+                        <!-- صورة الدكتورة -->
+                        <img src="dr_rahma_website/imgs/dr_rahma_photo.jpg" alt="دكتورة رحمة ميسر" class="doctor-photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الألعاب التفاعلية -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الألعاب التفاعلية</h2>
+                <p class="section-description">
+                    مجموعة من الألعاب التفاعلية المصممة خصيصاً لتطوير مهارات التخاطب والذاكرة والانتباه لدى الأطفال ذوي الاحتياجات الخاصة
+                </p>
+            </div>
+            
+            <div class="games-grid">
+                <!-- لعبة الذاكرة -->
+                <div class="game-card">
+                    <div class="animated-border"></div>
+                    <div class="game-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="20" r="12" fill="#47B5FF"/>
+                            <path d="M20 40 Q32 35 44 40" fill="none" stroke="#47B5FF" stroke-width="3"/>
+                            <circle cx="32" cy="20" r="3" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <h3 class="game-title">ألعاب الذاكرة والتركيز</h3>
+                    <p class="game-description">
+                        تطوير الذاكرة قصيرة المدى والقدرة على التركيز من خلال ألعاب مطابقة البطاقات والأصوات
+                    </p>
+                    <a href="advanced-memory-games.html" target="_blank" class="btn-game">ابدأ اللعب</a>
+                </div>
+
+                <!-- الألعاب التفاعلية التعليمية -->
+                <div class="game-card">
+                    <div class="animated-border"></div>
+                    <div class="game-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <!-- آلة حاسبة للرياضيات -->
+                            <rect x="8" y="16" width="48" height="32" rx="4" fill="#4A90E2" stroke="#357ABD" stroke-width="2"/>
+                            <rect x="12" y="20" width="40" height="12" rx="2" fill="#FFF8E7"/>
+                            <circle cx="20" cy="38" r="4" fill="#FFC72C"/>
+                            <circle cx="28" cy="38" r="4" fill="#FFC72C"/>
+                            <circle cx="36" cy="38" r="4" fill="#FFC72C"/>
+                            <circle cx="44" cy="38" r="4" fill="#FFC72C"/>
+                            <circle cx="20" cy="44" r="4" fill="#FFC72C"/>
+                            <circle cx="28" cy="44" r="4" fill="#FFC72C"/>
+                            <circle cx="36" cy="44" r="4" fill="#FFC72C"/>
+                            <circle cx="44" cy="44" r="4" fill="#FFC72C"/>
+                            <!-- حروف للهجاء -->
+                            <text x="32" y="35" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="12" font-weight="bold" fill="#4A3F35">أ ب ت</text>
+                        </svg>
+                    </div>
+                    <h3 class="game-title">الألعاب التفاعلية التعليمية</h3>
+                    <p class="game-description">
+                        ألعاب تعليمية شاملة لتعلم الرياضيات والهجائية والثقافة العامة مع 5 مستويات لكل لعبة
+                    </p>
+                    <ul class="game-features">
+                        <li>ألعاب الرياضيات: العد والجمع والطرح</li>
+                        <li>ألعاب الهجائية: تعلم الحروف وبناء الكلمات</li>
+                        <li>ألعاب الثقافة: أسئلة التاريخ والجغرافيا</li>
+                        <li>5 مستويات لكل لعبة مع نظام نقاط تحفيزي</li>
+                    </ul>
+                    <a href="educational-interactive-games.html" target="_blank" class="btn-game">ابدأ اللعب</a>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التدريب والموارد -->
+    <section id="training" class="training-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">التدريب والموارد التعليمية</h2>
+                <p class="section-description">
+                    مكتبة شاملة من الموارد التدريبية والمعلوماتية لأولياء الأمور والمعلمين
+                </p>
+            </div>
+            
+            <div class="training-grid">
+                <!-- تدريب أولياء الأمور -->
+                <div class="training-card">
+                    <div class="training-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="16" r="8" fill="#47B5FF"/>
+                            <ellipse cx="24" cy="32" rx="12" ry="10" fill="#FFC72C"/>
+                            <circle cx="16" cy="28" r="2" fill="#333"/>
+                            <circle cx="32" cy="28" r="2" fill="#333"/>
+                            <path d="M18 34 Q24 38 30 34" stroke="#333" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="training-title">شرح وتوعية أولياء الأمور</h3>
+                    <p class="training-description">
+                        دليل شامل ومفصل لفهم طبيعة الإعاقة وأفضل الاستراتيجيات المثبتة علمياً للتعامل مع الأطفال ذوي الاحتياجات الخاصة في البيئة المنزلية
+                    </p>
+                    <ul class="training-list">
+                        <li>فهم أنواع الإعاقات المختلفة وخصائص كل نوع</li>
+                        <li>أساليب التواصل الفعال والتعامل مع التحديات اللغوية</li>
+                        <li>إنشاء بيئة منزلية آمنة ومحفزة للتعلم والنمو</li>
+                        <li>استراتيجيات تعديل السلوك الإيجابي وإدارة الأزمات</li>
+                        <li>تطوير المهارات الحياتية والاكتفاء الذاتي</li>
+                        <li>التعامل مع الضغوط النفسية والعاطفية للأسرة</li>
+                        <li>بناء شبكة دعم اجتماعية ومهنية</li>
+                        <li>التخطيط للمستقبل ودمج الطفل في المجتمع</li>
+                    </ul>
+                    <a href="parent-guide.html" target="_blank" class="btn-training bold-read-now">اقرأ الآن</a>
+                </div>
+
+                <!-- تدريب المعلمين -->
+                <div class="training-card">
+                    <div class="training-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="16" y="12" width="16" height="20" rx="2" fill="#47B5FF"/>
+                            <circle cx="24" cy="10" r="4" fill="#FFC72C"/>
+                            <path d="M12 34 L20 38 L20 44 L12 40 Z" fill="#333"/>
+                            <path d="M28 34 L36 38 L36 44 L28 40 Z" fill="#333"/>
+                        </svg>
+                    </div>
+                    <h3 class="training-title">كيفية التعامل مع الطلاب للمعلمين</h3>
+                    <p class="training-description">
+                        استراتيجيات متقدمة ومجربة للتعامل مع الطلاب ذوي الاحتياجات الخاصة في البيئة التعليمية
+                    </p>
+                    <ul class="training-list">
+                        <li>تصميم بيئة تعليمية مناسبة ومهيأة</li>
+                        <li>طرق التدريس التفاعلية والمخصصة</li>
+                        <li>التقييم المناسب للقدرات والإمكانيات</li>
+                        <li>التعاون الفعال مع الأسرة والمتخصصين</li>
+                        <li>استخدام التكنولوجيا辅助ية في التعليم</li>
+                    </ul>
+                    <a href="teacher-guide.html" target="_blank" class="btn-training bold-read-now">اقرأ الآن</a>
+                </div>
+
+                <!-- التوصيات والإرشادات -->
+                <div class="training-card">
+                    <div class="training-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="16" y="8" width="16" height="32" rx="2" fill="#47B5FF"/>
+                            <polygon points="20,16 24,20 32,12" fill="#FFC72C"/>
+                            <circle cx="24" cy="32" r="3" fill="#333"/>
+                        </svg>
+                    </div>
+                    <h3 class="training-title">التوصيات والإرشادات</h3>
+                    <p class="training-description">
+                        إرشادات عملية وتوصيات مبنية على أفضل الممارسات في مجال رعاية ذوي الاحتياجات الخاصة
+                    </p>
+                    <ul class="training-list">
+                        <li>إرشادات السلامة والأمان في المنزل والمجتمع</li>
+                        <li>توصيات التغذية المتوازنة والنشاط البدني</li>
+                        <li>برنامج يومي مثالي لتنمية المهارات</li>
+                        <li>نصائح للنمو الصحي والتطور الطبيعي</li>
+                        <li>إرشادات العلاج الطبيعي والعلاج الوظيفي</li>
+                    </ul>
+                    <a href="guidance-guide.html" target="_blank" class="btn-training bold-read-now">اقرأ الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عن الدكتورة -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-photo-container">
+                        <div class="rotating-border">
+                            <div class="rotating-border-inner"></div>
+                        </div>
+                        <img src="dr_rahma_website/imgs/dr_rahma_photo.jpg" alt="دكتورة رحمة ميسر" class="about-photo">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2 class="about-title">عن الدكتورة رحمة ميسر</h2>
+                    <p class="about-description">
+                        دكتورة رحمة ميسر هي أخصائية تخاطب وتعديل سلوك متخصصة في رعاية الأطفال ذوي الاحتياجات الخاصة. 
+                        تتمتع بمؤهلات علمية متميزة وخبرة عملية واسعة في مجال التربية الخاصة وتطوير مهارات التواصل والتعامل مع التحديات السلوكية.
+                    </p>
+                    <div class="about-achievements">
+                        <div class="achievement">
+                            <h4>المؤهلات العلمية</h4>
+                            <ul>
+                                <li>بكالوريوس التربية الخاصة</li>
+                                <li>الدبلوم المهني اضطرابات تواصل وتخاطب - جامعة عين شمس</li>
+                                <li>دبلوم خاص في التربية الخاصة</li>
+                                <li>ماجستير في التربية الخاصة بدرجة امتياز</li>
+                            </ul>
+                        </div>
+                        <div class="achievement">
+                            <h4>الخبرات والتخصصات</h4>
+                            <ul>
+                                <li>خبرة 5 سنوات في مجال التربية الخاصة</li>
+                                <li>متخصصة في التخاطب واضطرابات التواصل</li>
+                                <li>خبيرة في تعديل السلوك للأطفال ذوي الاحتياجات الخاصة</li>
+                                <li>تدريب أولياء الأمور والمعلمين</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-description">
+                    نحن هنا لمساعدتكم في رحلة تطوير أطفالكم. تواصلوا معنا للحصول على الاستشارة المتخصصة
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="#47B5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>واتساب للحجز والاستفسارات</h4>
+                            <p><a href="https://wa.me/201027986106" target="_blank">+20 102 798 6106</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item emergency">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="#EF4444"/>
+                                <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" stroke="#EF4444" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>الرقم الطارئ</h4>
+                            <p><a href="tel:+201027986106">+20 102 798 6106</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>احجز موعد الآن</h3>
+                    <p>احجز موعداً مخصصاً لطفلك واحصل على استشارة متخصصة</p>
+                    <a href="https://wa.me/201027986106?text=أريد حجز موعد مع دكتورة رحمة ميسر" class="btn-whatsapp" target="_blank">
+                        حجز عبر واتساب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- أداة الذكاء الاصطناعي -->
+    <div class="ai-chat-widget">
+        <button class="ai-chat-button" onclick="toggleChat()">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="14" fill="#47B5FF"/>
+                <path d="M10 12H22V20H10V12Z" fill="#FFFFFF"/>
+                <circle cx="12" cy="14" r="1" fill="#47B5FF"/>
+                <circle cx="16" cy="14" r="1" fill="#47B5FF"/>
+                <circle cx="20" cy="14" r="1" fill="#47B5FF"/>
+            </svg>
+            <span class="ai-chat-label">مساعد ذكي</span>
+        </button>
+        
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <h4>مساعد دكتورة رحمة ميسر</h4>
+                <button class="close-chat" onclick="toggleChat()">×</button>
+            </div>
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <div class="message ai-message">
+                    <div class="message-content">
+                        مرحباً! أنا مساعدك الذكي المتخصص في ذوي الاحتياجات الخاصة. كيف يمكنني المساعدة اليوم؟
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" id="aiChatInput" placeholder="اكتب سؤالك هنا..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendAIMessage()">إرسال</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- رأس -->
+                        <circle cx="40" cy="30" r="18" fill="#FFDBAC"/>
+                        <!-- الحجاب -->
+                        <path d="M25 25 Q40 15 55 25 L55 45 Q40 38 25 45 Z" fill="#FFF8E7"/>
+                        <!-- ابتسامة -->
+                        <path d="M32 35 Q40 40 48 35" stroke="#333" stroke-width="1.5" fill="none"/>
+                        <!-- الجسم -->
+                        <rect x="28" y="45" width="24" height="20" rx="3" fill="#1E293B"/>
+                    </svg>
+                    <span>د.رحمة ميسر</span>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 جميع الحقوق محفوظة - دكتورة رحمة ميسر</p>
+                    <p>متخصصة في التخاطب وتعديل السلوك لذوي الاحتياجات الخاصة</p>
+                </div>
+            </div>
+            
+            <!-- قسم تحميل التطبيق -->
+            <div class="footer-app-download">
+                <div class="app-download-content">
+                    <h3>حمل تطبيق دكتورة رحمة</h3>
+                    <p>احصل على جميع الخدمات في تطبيق واحد</p>
+                    <div class="app-download-buttons">
+                        <a href="download-app.html" class="btn-download-footer" target="_blank">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="#22C55E"/>
+                                <path d="M12 16V22" stroke="#22C55E" stroke-width="2"/>
+                                <path d="M8 18H16" stroke="#22C55E" stroke-width="2"/>
+                            </svg>
+                            <div class="btn-text">
+                                <span class="btn-subtitle">متوفر على</span>
+                                <span class="btn-title">أندرويد</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app-features">
+                        <span class="app-feature">🎮 ألعاب تفاعلية</span>
+                        <span class="app-feature">🤖 مساعد ذكي</span>
+                        <span class="app-feature">📚 دلائل تدريبية</span>
+                        <span class="app-feature">📱 حجز مباشر</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/games.js"></script>
+    <script src="scripts/ai-chat.js"></script>
+    <script src="scripts/animations.js"></script>
+</body>
+</html>

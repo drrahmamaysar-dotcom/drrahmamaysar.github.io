@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الألعاب التفاعلية التعليمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/educational-games.css">
+</head>
+<body>
+    <div class="container">
+        <!-- قسم الترحيب -->
+        <header class="hero-section">
+            <h1>أهلاً بك في عالم الألعاب!</h1>
+            <p>تعلم وألعب واكتشف مع ألعابنا التفاعلية</p>
+        </header>
+
+        <!-- قسم الألعاب -->
+        <main class="games-sections">
+            <!-- ألعاب الرياضيات -->
+            <section class="game-section" id="math-section">
+                <div class="section-header">
+                    <div class="section-icon">🔢</div>
+                    <h2>ألعاب الرياضيات</h2>
+                </div>
+                <div class="games-grid">
+                    <!-- لعبة العد -->
+                    <div class="game-card" data-game="counting">
+                        <div class="game-card-header">
+                            <h3>العد والأشكال</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="counting"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button math-button" onclick="startGame('counting', 1)">ابدأ اللعب</button>
+                    </div>
+
+                    <!-- لعبة الجمع -->
+                    <div class="game-card" data-game="addition">
+                        <div class="game-card-header">
+                            <h3>جمع الأرقام</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="addition"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button math-button" onclick="startGame('addition', 1)">ابدأ اللعب</button>
+                    </div>
+
+                    <!-- لعبة الطرح -->
+                    <div class="game-card" data-game="subtraction">
+                        <div class="game-card-header">
+                            <h3>طرح الأرقام</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="subtraction"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button math-button" onclick="startGame('subtraction', 1)">ابدأ اللعب</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ألعاب الهجائية -->
+            <section class="game-section" id="language-section">
+                <div class="section-header">
+                    <div class="section-icon">🔤</div>
+                    <h2>ألعاب الهجائية</h2>
+                </div>
+                <div class="games-grid">
+                    <!-- لعبة تعلم الحروف -->
+                    <div class="game-card" data-game="letters">
+                        <div class="game-card-header">
+                            <h3>تعلم الحروف</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="letters"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button language-button" onclick="startGame('letters', 1)">ابدأ اللعب</button>
+                    </div>
+
+                    <!-- لعبة بناء الكلمات -->
+                    <div class="game-card" data-game="words">
+                        <div class="game-card-header">
+                            <h3>بناء الكلمات</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="words"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button language-button" onclick="startGame('words', 1)">ابدأ اللعب</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ألعاب الثقافة العامة -->
+            <section class="game-section" id="culture-section">
+                <div class="section-header">
+                    <div class="section-icon">🌍</div>
+                    <h2>ألعاب الثقافة العامة</h2>
+                </div>
+                <div class="games-grid">
+                    <!-- لعبة التاريخ -->
+                    <div class="game-card" data-game="history">
+                        <div class="game-card-header">
+                            <h3>أسئلة التاريخ</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="history"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button culture-button" onclick="startGame('history', 1)">ابدأ اللعب</button>
+                    </div>
+
+                    <!-- لعبة الجغرافيا -->
+                    <div class="game-card" data-game="geography">
+                        <div class="game-card-header">
+                            <h3>أسئلة الجغرافيا</h3>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="geography"></div>
+                        </div>
+                        <div class="level-info">
+                            <span>المستوى:</span>
+                            <span class="current-level">1</span>
+                            <span>/ 5</span>
+                        </div>
+                        <button class="game-button culture-button" onclick="startGame('geography', 1)">ابدأ اللعب</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- نافذة النتيجة -->
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <div class="result-icon">🌟</div>
+                <h2 id="resultTitle">رائع!</h2>
+                <div class="score-display">
+                    <span class="score-label">النقاط:</span>
+                    <span id="finalScore">0</span>
+                </div>
+                <p id="encouragementMessage">أحسنت، أنت تتقدم!</p>
+                <button id="nextLevelBtn" class="game-button success-button" onclick="nextLevel()">المستوى التالي</button>
+                <button id="backToMenuBtn" class="game-button secondary-button" onclick="backToMenu()">العودة للقائمة</button>
+            </div>
+        </div>
+
+        <!-- منطقة اللعبة -->
+        <div id="gameArea" class="game-area hidden">
+            <div class="game-header">
+                <button class="back-button" onclick="backToMenu()">← العودة</button>
+                <div class="game-info">
+                    <span id="gameTitle">اللعبة</span>
+                    <div class="level-indicator">المستوى <span id="currentLevelNum">1</span></div>
+                </div>
+                <div class="score-info">
+                    النقاط: <span id="currentScore">0</span>
+                </div>
+            </div>
+            <div id="gameContent" class="game-content">
+                <!-- سيتم تحميل محتوى اللعبة هنا -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>موقع د. رحمة - منصة تعليمية تفاعلية</p>
+        </footer>
+    </div>
+
+    <script src="scripts/educational-games.js"></script>
+</body>
+</html>

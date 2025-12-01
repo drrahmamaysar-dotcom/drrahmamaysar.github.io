@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل المعلمين الاستراتيجيات المتقدمة للتعامل مع الطلاب ذوي الاحتياجات الخاصة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Noto Sans Arabic', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .table-of-contents {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .table-of-contents h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .toc-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .toc-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .guide-section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: linear-gradient(135deg, #3d8bfe 0%, #00d9fe 100%);
+        }
+
+        .section-header h2 {
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .section-content h3 {
+            color: #4facfe;
+            margin: 25px 0 15px 0;
+            font-size: 1.3em;
+            border-right: 4px solid #4facfe;
+            padding-right: 15px;
+        }
+
+        .section-content h4 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.1em;
+        }
+
+        .strategy-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #f5576c;
+        }
+
+        .strategy-box h4 {
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #00b894;
+        }
+
+        .tip-box::before {
+            content: "💡 نصيحة متقدمة: ";
+            font-weight: bold;
+            color: #00b894;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #e9ecef;
+            position: relative;
+        }
+
+        .example-box::before {
+            content: "مثال عملي:";
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .checklist {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .checklist h4 {
+            color: #d63031;
+            margin-bottom: 15px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(214, 48, 49, 0.2);
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #00b894;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .resource-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .resource-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .resource-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .resource-table tr:hover {
+            background: #e9ecef;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 1.3em;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+        }
+
+        @media print {
+            .section-content {
+                display: block !important;
+            }
+            
+            .table-of-contents {
+                background: white !important;
+                box-shadow: none !important;
+            }
+            
+            .header {
+                background: #667eea !important;
+            }
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-icon.rotated {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>دليل المعلمين الاستراتيجيات المتقدمة</h1>
+            <p>دليل شامل ومجرب للتعامل مع الطلاب ذوي الاحتياجات الخاصة في البيئة التعليمية</p>
+        </div>
+
+        <a href="index.html" class="back-btn">← العودة للموقع الرئيسي</a>
+
+        <div class="table-of-contents">
+            <h2>فهرس المحتويات</h2>
+            <div class="toc-list">
+                <a href="#section1" class="toc-item" onclick="scrollToSection('section1')">فهم احتياجات الطلاب</a>
+                <a href="#section2" class="toc-item" onclick="scrollToSection('section2')">تصميم البيئة التعليمية</a>
+                <a href="#section3" class="toc-item" onclick="scrollToSection('section3')">استراتيجيات التدريس المخصصة</a>
+                <a href="#section4" class="toc-item" onclick="scrollToSection('section4')">أساليب التقييم المتوازنة</a>
+                <a href="#section5" class="toc-item" onclick="scrollToSection('section5')">إدارة السلوك والتواصل</a>
+                <a href="#section6" class="toc-item" onclick="scrollToSection('section6')">استخدام التكنولوجيا المساعدة</a>
+                <a href="#section7" class="toc-item" onclick="scrollToSection('section7')">التعاون مع الأسرة</a>
+                <a href="#section8" class="toc-item" onclick="scrollToSection('section8')">التطوير المهني المستمر</a>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section1">
+            <div class="section-header" onclick="toggleSection('section1')">
+                <h2>فهم احتياجات الطلاب ذوي الاحتياجات الخاصة</h2>
+                <span class="expand-icon" id="icon-section1">▼</span>
+            </div>
+            <div class="section-content" id="content-section1">
+                <h3>أنواع الإعاقات والاحتياجات التعليمية</h3>
+                
+                <div class="strategy-box">
+                    <h4>الإعاقات الفكرية</h4>
+                    <p>التحديات:</p>
+                    <ul>
+                        <li>صعوبة في المعالجة المعرفية</li>
+                        <li>بطء في التعلم</li>
+                        <li>حاجة لتكرار المفاهيم</li>
+                    </ul>
+                    <p>الاستراتيجيات الفعالة:</p>
+                    <ul>
+                        <li>استخدام التعليم البصري والبسيط</li>
+                        <li>تقسيم المهام إلى خطوات صغيرة</li>
+                        <li>إعطاء وقت إضافي للمهام</li>
+                        <li>التركيز على المهارات العملية</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>صعوبات التعلم (عسر القراءة، عسر الكتابة)</h4>
+                    <p>العلامات المبكرة:</p>
+                    <ul>
+                        <li>صعوبة في ربط الحروف بالأصوات</li>
+                        <li>بطء في القراءة والفهم</li>
+                        <li>مشاكل في التنظيم والتنسيق</li>
+                    </ul>
+                    <p>الاستراتيجيات المدعومة بالأدلة:</p>
+                    <ul>
+                        <li>التعليم متعدد الحواس (Visual-Auditory-Kinesthetic)</li>
+                        <li>استخدام برامج قراءة متخصصة</li>
+                        <li>التقييم الشفهي بدلاً من الكتابي</li>
+                        <li>توفير أدوات كتابة مساعدة</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>اضطراب طيف التوحد (ASD)</h4>
+                    <p>خصائص أساسية:</p>
+                    <ul>
+                        <li>صعوبة في التواصل الاجتماعي</li>
+                        <li>اهتمامات مقيدة ومتكررة</li>
+                        <li>حساسية للتغيرات البيئية</li>
+                    </ul>
+                    <p>الاستراتيجيات المتخصصة:</p>
+                    <ul>
+                        <li>استخدام الدعم البصري المكثف</li>
+                        <li>توفير روتين يومي ثابت</li>
+                        <li>إعداد مناطق هادئة للاستراحة</li>
+                        <li>التدرج في التعرض للمهارات الاجتماعية</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>احتفظ بسجل شخصي لكل طالب يصف احتياجاته الخاصة، التفضيلات، والاستراتيجيات التي نجحت معه. هذا السجل سيساعدك في التخطيط الفعال له.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section2">
+            <div class="section-header" onclick="toggleSection('section2')">
+                <h2>تصميم البيئة التعليمية المناسبة</h2>
+                <span class="expand-icon" id="icon-section2">▼</span>
+            </div>
+            <div class="section-content" id="content-section2">
+                <h3>المساحة الفيزيائية والتنظيم</h3>
+                
+                <div class="checklist">
+                    <h4>عناصر البيئة التعليمية المثلى:</h4>
+                    <ul>
+                        <li>إضاءة طبيعية مناسبة دون وهج</li>
+                        <li>أماكن جلوس مرنة قابلة للتعديل</li>
+                        <li>مناطق هادئة للاستراحة والتهدئة</li>
+                        <li>مساحات تخزين منظمة ومنظمة</li>
+                        <li>أدوات مساعدة في متناول اليد</li>
+                        <li>إشارات بصرية واضحة ومنظمة</li>
+                        <li>مناطق عمل هادئة للطلاب الحساسين للصوت</li>
+                    </ul>
+                </div>
+
+                <h3>الترتيب والتنظيم البصري</h3>
+                
+                <div class="example-box">
+                    <p><strong>مثال عملي لتنظيم الصف:</strong></p>
+                    <ul>
+                        <li>ضع جدولاً زمنياً يومياً مرئياً مع صور</li>
+                        <li>استخدم صناديق ملونة لتنظيم الأدوات</li>
+                        <li>أضف صور وعلامات بصرية لكل منطقة في الصف</li>
+                        <li>أنشئ "مركز الاستراحة" بمواد تهدئة</li>
+                    </ul>
+                </div>
+
+                <h3>التكيفات التكنولوجية</h3>
+                
+                <div class="strategy-box">
+                    <h4>أدوات التكنولوجيا المساعدة:</h4>
+                    <ul>
+                        <li><strong>برامج قارئ الشاشة:</strong> للطلاب ضعاف البصر</li>
+                        <li><strong>برامج تحويل النص إلى كلام:</strong> للطلاب ذوي عسر القراءة</li>
+                        <li><strong>لوحات التواصل الإلكتروني:</strong> للطلاب غير الناطقين</li>
+                        <li><strong>التطبيقات التفاعلية:</strong> لتعلم المهارات الأساسية</li>
+                        <li><strong>الأجهزة اللوحية:</strong> للقراءة والكتابة التفاعلية</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>اطلب من الطلاب المساعدة في تصميم بيئة صفهم. فهم يعرفون ما يناسبهم أكثر من أي شخص آخر.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section3">
+            <div class="section-header" onclick="toggleSection('section3')">
+                <h2>استراتيجيات التدريس المخصصة</h2>
+                <span class="expand-icon" id="icon-section3">▼</span>
+            </div>
+            <div class="section-content" id="content-section3">
+                <h3>نموذج التعليم التفاضلي</h3>
+                
+                <div class="strategy-box">
+                    <h4>التخطيط المتدرج:</h4>
+                    <ol>
+                        <li><strong>التقييم الأولي:</strong> تحديد المستوى الحالي للطالب</li>
+                        <li><strong>وضع الأهداف:</strong> أهداف محددة وقابلة للقياس</li>
+                        <li><strong>اختيار الاستراتيجيات:</strong> متناسبة مع أسلوب التعلم</li>
+                        <li><strong>تنفيذ التدريس:</strong> مع المراقبة المستمرة</li>
+                        <li><strong>التقييم والتعديل:</strong> تعديل الخطة حسب النتائج</li>
+                    </ol>
+                </div>
+
+                <h3>التدريس متعدد الحواس</h3>
+                
+                <div class="example-box">
+                    <p><strong>مثال لتعليم جمع الأرقام:</strong></p>
+                    <ul>
+                        <li><strong>الحواس البصرية:</strong> استخدام الكرات الملونة والصور</li>
+                        <li><strong>الحواس السمعية:</strong> قراءة الأرقام بصوت عالٍ</li>
+                        <li><strong>الحواس الحركية:</strong> عد الأشياء باليدين</li>
+                        <li><strong>الحواس اللمسية:</strong> استخدام المجسات الحسية</li>
+                    </ul>
+                </div>
+
+                <h3>استراتيجيات التعلم النشط</h3>
+                
+                <div class="strategy-box">
+                    <h4>التعلم التعاوني:</h4>
+                    <ul>
+                        <li>تنظيم مجموعات صغيرة ومختلطة القدرات</li>
+                        <li>تعيين أدوار محددة لكل عضو</li>
+                        <li>توفير هياكل دعم واضحة</li>
+                        <li>تشجيع التفاعل الإيجابي</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>التعلم المبني على القصة:</h4>
+                    <ul>
+                        <li>استخدام القصص الشخصية والمحلية</li>
+                        <li>دمج الموسيقى والألعاب التعليمية</li>
+                        <li>استخدام التمثيل والأداء</li>
+                        <li>ربط المحتوى بالحياة اليومية</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>استخدم قاعدة 80/20: 80% من الوقت تركيز على نقاط قوة الطالب، و20% على تطوير نقاط الضعف.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section4">
+            <div class="section-header" onclick="toggleSection('section4')">
+                <h2>أساليب التقييم المتوازنة</h2>
+                <span class="expand-icon" id="icon-section4">▼</span>
+            </div>
+            <div class="section-content" id="content-section4">
+                <h3>أنواع التقييم المناسبة</h3>
+                
+                <div class="strategy-box">
+                    <h4>التقييم التشخيصي:</h4>
+                    <ul>
+                        <li>تحديد نقاط القوة والضعف الأولية</li>
+                        <li>استخدام أدوات متنوعة للقياس</li>
+                        <li>توثيق النتائج بعناية</li>
+                        <li>وضع خطة فردية بناءً على النتائج</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>التقييم المستمر:</h4>
+                    <ul>
+                        <li>مراقبة يومية للتقدم</li>
+                        <li>استخدام قوائم مراجعة مفصلة</li>
+                        <li>تسجيل الملاحظات السلوكية</li>
+                        <li>توثيق المحاولات والنجاحات</li>
+                    </ul>
+                </div>
+
+                <h3>طرق التقييم البديلة</h3>
+                
+                <table class="resource-table">
+                    <thead>
+                        <tr>
+                            <th>نوع التقييم</th>
+                            <th>وصف الطريقة</th>
+                            <th>الفئة المناسبة</th>
+                            <th>مثال تطبيقي</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>التقييم الشفهي</td>
+                            <td>إجابة الأسئلة بصوت عالٍ</td>
+                            <td>ذوي عسر القراءة</td>
+                            <td>قراءة قصة مع مناقشة محتواها</td>
+                        </tr>
+                        <tr>
+                            <td>التقييم العملي</td>
+                            <td>إظهار المهارة بالأداء</td>
+                            <td>المعاقين حركياً</td>
+                            <td>حل مسائل رياضية بالعداد</td>
+                        </tr>
+                        <tr>
+                            <td>التقييم المصور</td>
+                            <td>استخدام الصور والرموز</td>
+                            <td>ذوي الإعاقة الفكرية</td>
+                            <td>ترتيب صور قصة زمنياً</td>
+                        </tr>
+                        <tr>
+                            <td>التقييم التفاعلي</td>
+                            <td>استخدام التكنولوجيا</td>
+                            <td>جميع الفئات</td>
+                            <td>برامج تعليمية تفاعلية</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="tip-box">
+                    <p>تذكر: الهدف من التقييم هو فهم مستوى الطالب الحالي وليس مقارنته مع الآخرين.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section5">
+            <div class="section-header" onclick="toggleSection('section5')">
+                <h2>إدارة السلوك والتواصل الإيجابي</h2>
+                <span class="expand-icon" id="icon-section5">▼</span>
+            </div>
+            <div class="section-content" id="content-section5">
+                <h3>فهم السلوك كوسيلة تواصل</h3>
+                
+                <div class="strategy-box">
+                    <h4>السلوك كرسالة:</h4>
+                    <ul>
+                        <li><strong>السلوك العدواني:</strong> قد يعبر عن خوف أو إحباط</li>
+                        <li><strong>الانسحاب الاجتماعي:</strong> قد يشير إلى صعوبة في التفاعل</li>
+                        <li><strong>عدم الانتباه:</strong> قد يكون علامة على صعوبة في التركيز</li>
+                        <li><strong>السلوك المتكرر:</strong> قد يكون آلية لطمأنة الذات</li>
+                    </ul>
+                </div>
+
+                <h3>استراتيجيات التدخل الإيجابي</h3>
+                
+                <div class="checklist">
+                    <h4>خطوات التدخل عند حدوث سلوك مشكلة:</h4>
+                    <ul>
+                        <li>ابق هادئاً ومتماسكاً</li>
+                        <li>تذكر أن السلوك رسالة، ليس عدواناً شخصياً</li>
+                        <li>اقترب ببطء وأعط مسافة آمنة</li>
+                        <li>استخدم لغة بسيطة وواضحة</li>
+                        <li>قدم خيارات محدودة ومنطقية</li>
+                        <li>امتدح السلوك الإيجابي فور حدوثه</li>
+                        <li>وثق الحادث ونتائجه</li>
+                    </ul>
+                </div>
+
+                <h3>التواصل الفعال</h3>
+                
+                <div class="example-box">
+                    <p><strong>أمثلة على التواصل الإيجابي:</strong></p>
+                    <p><strong>بدلاً من:</strong> "停止 الكلام والاستمع"</p>
+                    <p><strong>قل:</strong> "أحب استماعك، دعني أكمل شرح المثال أولاً"</p>
+                    <p><strong>بدلاً من:</strong> "أنت دائماً تكسر الأدوات"</p>
+                    <p><strong>قل:</strong> "سنتعلم معاً كيفية استخدام هذه الأداة بأمان"</p>
+                </div>
+
+                <h3>تقوية السلوك الإيجابي</h3>
+                
+                <div class="strategy-box">
+                    <h4>أنواع التعزيز:</h4>
+                    <ul>
+                        <li><strong>التعزيز الإيجابي المباشر:</strong> الثناء والمدح الفوري</li>
+                        <li><strong>التعزيز الاجتماعي:</strong> تقدير الأقران</li>
+                        <li><strong>التعزيز الرمزي:</strong> شارات أو ملصقات</li>
+                        <li><strong>التعزيز الطبيعي:</strong> الأنشطة الممتعة</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>قاعدة التعزيز 5:1: لكل ملاحظة سلبية، قدم خمس ملاحظات إيجابية.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section6">
+            <div class="section-header" onclick="toggleSection('section6')">
+                <h2>استخدام التكنولوجيا المساعدة في التعليم</h2>
+                <span class="expand-icon" id="icon-section6">▼</span>
+            </div>
+            <div class="section-content" id="content-section6">
+                <h3>فئة الأدوات التقنية</h3>
+                
+                <div class="strategy-box">
+                    <h4>أدوات معالجة النصوص:</h4>
+                    <ul>
+                        <li>برامج تصحيح الإملاء والنحو</li>
+                        <li>برامج قراءة النصوص بصوت عالٍ</li>
+                        <li>قواميس صوتية وتفاعلية</li>
+                        <li>برامج تحويل الكلام إلى نص</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>أدوات التعلم التفاعلي:</h4>
+                    <ul>
+                        <li>برامج تدريب المهارات الحركية الدقيقة</li>
+                        <li>ألعاب تعليمية متدرجة الصعوبة</li>
+                        <li>برامج تحسين الذاكرة والانتباه</li>
+                        <li>تطبيقات التواصل التعويضي</li>
+                    </ul>
+                </div>
+
+                <h3>التطبيقات المتخصصة</h3>
+                
+                <table class="resource-table">
+                    <thead>
+                        <tr>
+                            <th>اسم التطبيق</th>
+                            <th>الهدف التعليمي</th>
+                            <th>الفئة المناسبة</th>
+                            <th>طريقة الاستخدام</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Proloquo2Go</td>
+                            <td>التواصل الصوتي</td>
+                            <td>غير الناطقين</td>
+                            <td>اختيار الصور لإنتاج الجمل</td>
+                        </tr>
+                        <tr>
+                            <td>Reading A-Z</td>
+                            <td>تطوير مهارات القراءة</td>
+                            <td>عسر القراءة</td>
+                            <td>قراءة كتب بمستويات مختلفة</td>
+                        </tr>
+                        <tr>
+                            <td>Touch Math</td>
+                            <td>تعلم الرياضيات</td>
+                            <td>صعوبات التعلم الحسية</td>
+                            <td>استخدام اللمس لحساب الأرقام</td>
+                        </tr>
+                        <tr>
+                            <td>Dragon Naturally Speaking</td>
+                            <td>تحويل الكلام إلى نص</td>
+                            <td>صعوبات الكتابة</td>
+                            <td>إملاء المحتوى صوتياً</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>استراتيجية دمج التكنولوجيا</h3>
+                
+                <div class="checklist">
+                    <h4>خطوات تطبيق ناجحة:</h4>
+                    <ul>
+                        <li>تقييم احتياجات الطالب التقنية</li>
+                        <li>اختيار الأدوات المناسبة</li>
+                        <li>التدريب على استخدام الأداة</li>
+                        <li>المراقبة والتقييم المستمر</li>
+                        <li>التعديل حسب التقدم</li>
+                        <li>التنسيق مع الأساليب التقليدية</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>التكنولوجيا مساعدة، ليس بديلاً. استخدمها لتعزيز التفاعل البشري، ليس استبداله.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section7">
+            <div class="section-header" onclick="toggleSection('section7')">
+                <h2>التعاون الفعال مع الأسرة والمتخصصين</h2>
+                <span class="expand-icon" id="icon-section7">▼</span>
+            </div>
+            <div class="section-content" id="content-section7">
+                <h3>بناء شراكة مع الأسرة</h3>
+                
+                <div class="strategy-box">
+                    <h4>أسس الشراكة الفعالة:</h4>
+                    <ul>
+                        <li><strong>الثقة والاحترام:</strong> تقدير دور الأسرة في تربية الطفل</li>
+                        <li><strong>التواصل المنتظم:</strong> تحديثات أسبوعية عن التقدم</li>
+                        <li><strong>المشاركة في القرار:</strong> إشراك الأسرة في التخطيط</li>
+                        <li><strong>التعلم المتبادل:</strong> تبادل الخبرات والنصائح</li>
+                    </ul>
+                </div>
+
+                <h3>قنوات التواصل المختلفة</h3>
+                
+                <div class="example-box">
+                    <p><strong>طرق التواصل المتنوعة:</strong></p>
+                    <ul>
+                        <li><strong>الاجتماعات الرسمية:</strong> نصف سنوية لمناقشة التقييم الشامل</li>
+                        <li><strong>التواصل اليومي:</strong> دفتر ملاحظات أو رسائل إلكترونية</li>
+                        <li><strong>الاتصال السريع:</strong> للمتابعة أو عند الحاجة الطارئة</li>
+                        <li><strong>ورش العمل التعليمية:</strong> تدريب الأسرة على استراتيجيات التدريس</li>
+                    </ul>
+                </div>
+
+                <h3>التعاون مع الفريق متعدد التخصصات</h3>
+                
+                <div class="checklist">
+                    <h4>أعضاء الفريق:</h4>
+                    <ul>
+                        <li><strong>المعلم الرئيسي:</strong> تنسيق البرنامج التعليمي</li>
+                        <li><strong>أخصائي التخاطب:</strong> تطوير مهارات التواصل</li>
+                        <li><strong>أخصائي العلاج الطبيعي:</strong> تحسين المهارات الحركية</li>
+                        <li><strong>أخصائي العلاج الوظيفي:</strong> تطوير مهارات الحياة اليومية</li>
+                        <li><strong>الطبيب النفسي:</strong> التقييم والتشخيص</li>
+                        <li><strong>الاستشاري التربوي:</strong> التخطيط والبرامج</li>
+                    </ul>
+                </div>
+
+                <h3>تنسيق التدخلات</h3>
+                
+                <div class="strategy-box">
+                    <h4>استراتيجيات التنسيق:</h4>
+                    <ul>
+                        <li>اجتماعات دورية لمناقشة التطورات</li>
+                        <li>مشاركة السجلات والتقييمات</li>
+                        <li>تحديد الأهداف المشتركة</li>
+                        <li>توزيع المسؤوليات بوضوح</li>
+                        <li>مراجعة التقدم بانتظام</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>الأسرة شريك وليس مستقبل للقرارات. استمع لنصائحهم واستخدم خبراتهم في التخطيط.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section" id="section8">
+            <div class="section-header" onclick="toggleSection('section8')">
+                <h2>التطوير المهني المستمر</h2>
+                <span class="expand-icon" id="icon-section8">▼</span>
+            </div>
+            <div class="section-content" id="content-section8">
+                <h3>مسارات التعلم والتطوير</h3>
+                
+                <div class="strategy-box">
+                    <h4>المجالات الأساسية للتطوير:</h4>
+                    <ul>
+                        <li><strong>المعرفة النظرية:</strong> فهم الإعاقات والاحتياجات</li>
+                        <li><strong>المهارات العملية:</strong> تطبيق الاستراتيجيات التعليمية</li>
+                        <li><strong>التكنولوجيا:</strong> استخدام الأدوات المساعدة</li>
+                        <li><strong>التواصل:</strong> التعامل مع الطلاب والعائلات</li>
+                        <li><strong>إدارة السلوك:</strong> التدخل والتوجيه الإيجابي</li>
+                    </ul>
+                </div>
+
+                <h3>مصادر التعلم المستمر</h3>
+                
+                <table class="resource-table">
+                    <thead>
+                        <tr>
+                            <th>المصدر</th>
+                            <th>النوع</th>
+                            <th>محتوى التعلم</th>
+                            <th>الفائدة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>الدورات التدريبية</td>
+                            <td>حضورية/عن بُعد</td>
+                            <td>مفاهيم وأساليب متقدمة</td>
+                            <td>شهادات معتمدة وتفاعل مباشر</td>
+                        </tr>
+                        <tr>
+                            <td>الكتب والمقالات</td>
+                            <td>ذاتي</td>
+                            <td>بحث وأدلة عملية</td>
+                            <td>مرونة التعلم وعمق المعرفة</td>
+                        </tr>
+                        <tr>
+                            <td>ورش العمل</td>
+                            <td>جماعية</td>
+                            <td>ممارسة مهارات محددة</td>
+                            <td>تعلم من الأقران وتبادل الخبرات</td>
+                        </tr>
+                        <tr>
+                            <td>المؤتمرات</td>
+                            <td>علنية</td>
+                            <td>أحدث الاتجاهات والبحث</td>
+                            <td>شبكات مهنية وتوسيع الآفاق</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>بناء شبكة مهنية</h3>
+                
+                <div class="example-box">
+                    <p><strong>شبكة الدعم المهني:</strong></p>
+                    <ul>
+                        <li>انضم لمنظمات المعلمين المتخصصين</li>
+                        <li>شارك في مجموعات نقاش إلكترونية</li>
+                        <li>احضر مؤتمرات وندوات متخصصة</li>
+                        <li>اطلب الموجه من المعلمين ذوي الخبرة</li>
+                        <li>كن مرشداً للمعلمين الجدد</li>
+                    </ul>
+                </div>
+
+                <h3>قياس وتحسين الأداء</h3>
+                
+                <div class="checklist">
+                    <h4>خطوات التقييم الذاتي:</h4>
+                    <ul>
+                        <li>حدد الأهداف التعليمية المحددة</li>
+                        <li>راقب تقدم الطلاب بانتظام</li>
+                        <li>اطلب ملاحظات من الزملاء والمشرفين</li>
+                        <li>قيّم فعالية الاستراتيجيات المستخدمة</li>
+                        <li>حدّث أساليبك بناءً على النتائج</li>
+                        <li>وثق النجاحات والتحديات</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-box">
+                    <h4>الخطة الشخصية للتطوير:</h4>
+                    <ul>
+                        <li>حدد مجالات التحسين الرئيسية</li>
+                        <li>ضع خطة زمنية واقعية</li>
+                        <li>ابحث عن موارد التعلم المناسبة</li>
+                        <li>طبق ما تعلمته في الفصل</li>
+                        <li>قيّم النتائج وكرر العملية</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>التعلم مهنة مدى الحياة. كل طالب يواجهك فرصة جديدة لتوسيع معرفتك ومهاراتك.</p>
+                </div>
+
+                <h3>الخاتمة</h3>
+                <div class="example-box">
+                    <p><strong>تذكر دائماً:</strong></p>
+                    <ul>
+                        <li>كل طالب فريد ولديه إمكانيات خاصة</li>
+                        <li>التعليم الشامل مسؤولية جماعية</li>
+                        <li>الصبر والمثابرة أساس النجاح</li>
+                        <li>التغيير قد يكون بطيئاً لكنه مهم</li>
+                        <li>أنت تؤثر إيجابياً في حياة الطلاب وعائلاتهم</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 20px; font-size: 1.2em; color: #667eea;">
+                        <strong>شكراً لالتزامك بخدمة طلاب الاحتياجات الخاصة</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">← العودة للموقع الرئيسي</a>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const content = document.getElementById('content-' + sectionId);
+            const icon = document.getElementById('icon-' + sectionId);
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('rotated');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('rotated');
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const content = document.getElementById('content-' + sectionId);
+            const icon = document.getElementById('icon-' + sectionId);
+            
+            section.scrollIntoView({ behavior: 'smooth' });
+            content.classList.add('active');
+            icon.classList.add('rotated');
+        }
+
+        // إضافة وظائف الطباعة
+        function printGuide() {
+            // إظهار جميع الأقسام قبل الطباعة
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.add('active');
+            });
+            
+            window.print();
+            
+            // إخفاء الأقسام مرة أخرى بعد الطباعة
+            setTimeout(() => {
+                sections.forEach((section, index) => {
+                    if (index !== 0) { // إبقاء القسم الأول مفتوحاً
+                        section.classList.remove('active');
+                    }
+                });
+            }, 1000);
+        }
+
+        // إعداد الصفحة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            // فتح القسم الأول افتراضياً
+            document.getElementById('content-section1').classList.add('active');
+            document.getElementById('icon-section1').classList.add('rotated');
+            
+            // إضافة رابط الطباعة
+            const printBtn = document.createElement('button');
+            printBtn.textContent = '🖨️ طباعة الدليل';
+            printBtn.className = 'back-btn';
+            printBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000;';
+            printBtn.onclick = printGuide;
+            document.body.appendChild(printBtn);
+        });
+
+        // إضافة قائمة تنقل سريعة
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.guide-section');
+            const nav = document.querySelector('.table-of-contents');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // تحديث الفهرس حسب القسم المرئي
+            const tocItems = document.querySelectorAll('.toc-item');
+            tocItems.forEach(item => {
+                item.style.opacity = '0.7';
+                if (item.getAttribute('href') === '#' + current) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1.05)';
+                } else {
+                    item.style.transform = 'scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

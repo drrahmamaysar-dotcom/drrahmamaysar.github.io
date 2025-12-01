@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إرشادات وتوصيات شاملة لرعاية ذوي الاحتياجات الخاصة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Noto Sans Arabic', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quick-nav {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .quick-nav h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .nav-item {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .guidance-section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section-header:hover {
+            background: linear-gradient(135deg, #3d8bfe 0%, #00d9fe 100%);
+        }
+
+        .section-header h2 {
+            font-size: 1.7em;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-content {
+            padding: 30px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-content h3 {
+            color: #4facfe;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+            border-right: 4px solid #4facfe;
+            padding-right: 15px;
+            font-weight: 600;
+        }
+
+        .section-content h4 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .safety-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 6px solid #ff4757;
+            position: relative;
+        }
+
+        .safety-box::before {
+            content: "⚠️";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #ff4757;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .nutrition-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 6px solid #00b894;
+            position: relative;
+        }
+
+        .nutrition-box::before {
+            content: "🥗";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #00b894;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .schedule-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 6px solid #f39c12;
+            position: relative;
+        }
+
+        .schedule-box::before {
+            content: "📅";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #f39c12;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .therapy-box {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 6px solid #8b5cf6;
+            position: relative;
+        }
+
+        .therapy-box::before {
+            content: "🏃‍♀️";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #8b5cf6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #e17055;
+            position: relative;
+        }
+
+        .tip-box::before {
+            content: "💡";
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+
+        .tip-box p {
+            margin-right: 40px;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #e9ecef;
+            position: relative;
+        }
+
+        .example-box::before {
+            content: "مثال عملي:";
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .checklist {
+            background: linear-gradient(135deg, #c7ecee 0%, #dfe9f3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .checklist h4 {
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #00b894;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .daily-schedule {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .schedule-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #f39c12;
+        }
+
+        .schedule-time {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .schedule-activity {
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .progress-tracker {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .progress-tracker h4 {
+            color: #2d3436;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background: #ddd;
+            border-radius: 25px;
+            height: 20px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00b894, #00cec9);
+            border-radius: 25px;
+            transition: width 0.5s ease;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 20px 10px 20px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.5em;
+        }
+
+        .expand-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 1.4em;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .daily-schedule {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .section-content {
+                display: block !important;
+            }
+            
+            .quick-nav {
+                background: white !important;
+                box-shadow: none !important;
+            }
+            
+            .header {
+                background: #667eea !important;
+            }
+            
+            .nav-item:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>إرشادات وتوصيات شاملة</h1>
+            <p>دليل عملي مبني على أفضل الممارسات في مجال رعاية ذوي الاحتياجات الخاصة</p>
+        </div>
+
+        <a href="index.html" class="back-btn">← العودة للموقع الرئيسي</a>
+
+        <div class="quick-nav">
+            <h2>التنقل السريع</h2>
+            <div class="nav-grid">
+                <a href="#safety" class="nav-item" onclick="scrollToSection('safety')">🛡️ السلامة والأمان</a>
+                <a href="#nutrition" class="nav-item" onclick="scrollToSection('nutrition')">🥗 التغذية المتوازنة</a>
+                <a href="#schedule" class="nav-item" onclick="scrollToSection('schedule')">📅 البرنامج اليومي</a>
+                <a href="#development" class="nav-item" onclick="scrollToSection('development')">🌱 النمو الصحي</a>
+                <a href="#therapy" class="nav-item" onclick="scrollToSection('therapy')">🏃‍♀️ العلاج الطبيعي</a>
+                <a href="#monitoring" class="nav-item" onclick="scrollToSection('monitoring')">📊 المتابعة والتقييم</a>
+            </div>
+        </div>
+
+        <div class="guidance-section" id="safety">
+            <div class="section-header" onclick="toggleSection('safety')">
+                <h2>🛡️ إرشادات السلامة والأمان في المنزل والمجتمع</h2>
+                <span class="expand-icon" id="icon-safety">▼</span>
+            </div>
+            <div class="section-content" id="content-safety">
+                <h3>إعداد بيئة آمنة في المنزل</h3>
+                
+                <div class="safety-box">
+                    <h4>إرشادات السلامة الأساسية:</h4>
+                    <ul>
+                        <li><strong>إزالة المخاطر الكهربائية:</strong> تثبيت أغطية المقابس وإخفاء الأسلاك</li>
+                        <li><strong>تأمين الأدوية والمواد الكيميائية:</strong> في خزائن مغلقة بعيداً عن متناول اليد</li>
+                        <li><strong>تأمين السلالم والأماكن العالية:</strong> ببوابات أمان وحاجز حماية</li>
+                        <li><strong>توفير إضاءة كافية:</strong> في جميع أنحاء المنزل</li>
+                        <li><strong>إزالة الأشياء الحادة:</strong> من المناطق المرئية واللعب</li>
+                    </ul>
+                </div>
+
+                <h3>إعداد غرفة آمنة للطفل</h3>
+                
+                <div class="checklist">
+                    <h4>عناصر الأمان في غرفة النوم:</h4>
+                    <ul>
+                        <li>سرير مناسب الارتفاع مع حواجز أمان</li>
+                        <li>إزالة الألعاب الصغيرة التي يمكن ابتلاعها</li>
+                        <li>تثبيت الأرفف والخزائن على الحائط</li>
+                        <li>استخدام مقابس أمان للحواف الحادة</li>
+                        <li>إعداد منطقة لعب آمنة على الأرض</li>
+                        <li>إزالة الستائر والحبال الطويلة</li>
+                    </ul>
+                </div>
+
+                <h3>الأمان في المطبخ والحمام</h3>
+                
+                <div class="example-box">
+                    <p><strong>إرشادات المطبخ:</strong></p>
+                    <ul>
+                        <li>استخدم مقابض أمان للخزائن</li>
+                        <li>احفظ الأدوات الحادة في أماكن عالية</li>
+                        <li>ثبت موقد الأمان واقي اللهب</li>
+                        <li>احفظ المنظفات في عبوات محكمة</li>
+                        <li>استخدم كراسي عالية آمنة</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>إرشادات الحمام:</strong></p>
+                    <ul>
+                        <li>ضع حصائر غير قابلة للانزلاق</li>
+                        <li>ثبت مقابض أمان قرب المرحاض</li>
+                        <li>احفظ الأدوية ومستحضرات التجميل</li>
+                        <li>استخدم أغطية أمان للمراحيض</li>
+                        <li>تأكد من درجة حرارة الماء المناسبة</li>
+                    </ul>
+                </div>
+
+                <h3>الأمان في المجتمع</h3>
+                
+                <div class="safety-box">
+                    <h4>إعداد الطفل للخروج الآمن:</h4>
+                    <ul>
+                        <li><strong>التدريب على السلامة المرورية:</strong> تعليم عبور الشارع بشكل آمن</li>
+                        <li><strong>تعريف معلومات شخصية:</strong> الاسم، العنوان، رقم الهاتف</li>
+                        <li><strong>التعامل مع الغرباء:</strong> عدم قبول هدايا أو طعام من أشخاص غير معروفين</li>
+                        <li><strong>استخدام بطاقات تعريف:</strong> تحتوي على معلومات الاتصال</li>
+                        <li><strong>التدريب على طلب المساعدة:</strong> من الشرطة أو أمن المنشآت</li>
+                    </ul>
+                </div>
+
+                <h3>إعداد خطة طوارئ</h3>
+                
+                <div class="checklist">
+                    <h4>محتويات خطة الطوارئ:</h4>
+                    <ul>
+                        <li>أرقام الطوارئ المهمة (شرطة، إسعاف، إطفاء)</li>
+                        <li>معلومات الاتصال بأفراد الأسرة</li>
+                        <li>معلومات طبية مهمة (حساسية، أدوية)</li>
+                        <li>قائمة الأدوية والجرعات</li>
+                        <li>تعليمات الإسعافات الأولية الأساسية</li>
+                        <li>مواقع避难 آمنة في المنزل</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>مارس إجراءات الطوارئ بانتظام مع الطفل لضمان استيعابه لها وتطبيقها عند الحاجة الفعلية.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guidance-section" id="nutrition">
+            <div class="section-header" onclick="toggleSection('nutrition')">
+                <h2>🥗 توصيات التغذية المتوازنة والنشاط البدني</h2>
+                <span class="expand-icon" id="icon-nutrition">▼</span>
+            </div>
+            <div class="section-content" id="content-nutrition">
+                <h3>أسس التغذية المتوازنة</h3>
+                
+                <div class="nutrition-box">
+                    <h4>العناصر الغذائية الأساسية:</h4>
+                    <ul>
+                        <li><strong>الكربوهيدرات المعقدة:</strong> الخبز المصنوع من الحبوب الكاملة، الأرز البني</li>
+                        <li><strong>البروتينات عالية الجودة:</strong> السمك، الدجاج، البيض، البقوليات</li>
+                        <li><strong>الدهون الصحية:</strong> المكسرات، البذور، زيت الزيتون، الأفوكادو</li>
+                        <li><strong>الفيتامينات والمعادن:</strong> الفواكه والخضروات الملونة</li>
+                        <li><strong>الألياف:</strong> الخضروات، الفواكه، الحبوب الكاملة</li>
+                        <li><strong>الماء:</strong> 6-8 أكواب يومياً</li>
+                    </ul>
+                </div>
+
+                <h3>تطوير عادات غذائية صحية</h3>
+                
+                <div class="checklist">
+                    <h4>نصائح لتشجيع الأكل الصحي:</h4>
+                    <ul>
+                        <li>ضع جدولاً ثابتاً للوجبات والوجبات الخفيفة</li>
+                        <li>اجعل وجبات الطعام وقتاً هادئاً وجماعياً</li>
+                        <li>قدم أطعمة جديدة ببطء وبطرق جذابة</li>
+                        <li>اجعل الطفل يشارك في تحضير الطعام</li>
+                        <li>قدم خيارات صحية للاختيار من بينها</li>
+                        <li>امتدح الطفل عند تجربة أطعمة جديدة</li>
+                    </ul>
+                </div>
+
+                <h3>التحديات الغذائية الشائعة</h3>
+                
+                <div class="example-box">
+                    <p><strong>التحدي: صعوبة في المضغ أو البلع</strong></p>
+                    <ul>
+                        <li>قطع الطعام إلى قطع صغيرة</li>
+                        <li>استخدام خلاط الطعام للحصول على قوام ناعم</li>
+                        <li>إضافة سوائل للحفاظ على الترطيب</li>
+                        <li>استشارة أخصائي علاج النطق للتمارين</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>التحدي: الحساسية الغذائية</strong></p>
+                    <ul>
+                        <li>حدد جميع المواد المسببة للحساسية</li>
+                        <li>اقرأ ملصقات المكونات بعناية</li>
+                        <li>استبدل المكونات بمواد آمنة</li>
+                        <li>احتفظ بأدوية الحساسية تحت اليد</li>
+                        <li>علّم الطفل التعرف على الأطعمة الخطيرة</li>
+                    </ul>
+                </div>
+
+                <h3>خطة غذائية أسبوعية نموذجية</h3>
+                
+                <div class="schedule-box">
+                    <h4>قالب التغذية اليومية:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #f39c12; margin-bottom: 10px;">الإفطار</h5>
+                            <p>شوفان مع فواكه + لبن + بيض مسلوق</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #f39c12; margin-bottom: 10px;">وجبة خفيفة صباحية</h5>
+                            <p>مكسرات مشكلة أو فواكه طازجة</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #f39c12; margin-bottom: 10px;">الغداء</h5>
+                            <p>دجاج مشوي + خضار مطبوخة + أرز بني</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #f39c12; margin-bottom: 10px;">وجبة خفيفة مسائية</h5>
+                            <p>زبادي مع عسل أو سلطة فواكه</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #f39c12; margin-bottom: 10px;">العشاء</h5>
+                            <p>سمك مشوي + بطاطا حلوة + سلطة خضراء</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>الأنشطة البدنية المناسبة</h3>
+                
+                <div class="therapy-box">
+                    <h4>أنشطة بدنية موصى بها:</h4>
+                    <ul>
+                        <li><strong>السباحة:</strong> نشاط آمن ومفيد لجميع العضلات</li>
+                        <li><strong>المشي اليومي:</strong> 30 دقيقة على الأقل يومياً</li>
+                        <li><strong>اليوغا للأطفال:</strong> لتحسين المرونة والتوازن</li>
+                        <li><strong>الألعاب الرياضية الخفيفة:</strong> كرة، رماية، etc.</li>
+                        <li><strong>التمارين في المنزل:</strong> تمارين بسيطة مع الأسرة</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>ابدأ بنشاطات قصيرة (10-15 دقيقة) وزد المدة تدريجياً. المهم هو الاستمرارية وليس الشدة.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guidance-section" id="schedule">
+            <div class="section-header" onclick="toggleSection('schedule')">
+                <h2>📅 برنامج يومي مثالي لتنمية المهارات</h2>
+                <span class="expand-icon" id="icon-schedule">▼</span>
+            </div>
+            <div class="section-content" id="content-schedule">
+                <h3>هيكل البرنامج اليومي</h3>
+                
+                <div class="schedule-box">
+                    <h4>مبادئ البرنامج الفعال:</h4>
+                    <ul>
+                        <li><strong>الانتظام:</strong> نفس الأوقات يومياً</li>
+                        <li><strong>المرونة:</strong> قابلية التكيف مع حالة الطفل</li>
+                        <li><strong>التوازن:</strong> بين النشاط والراحة</li>
+                        <li><strong>التدرج:</strong> زيادة الصعوبة تدريجياً</li>
+                        <li><strong>التنوع:</strong> أنشطة مختلفة لتنمية مهارات متنوعة</li>
+                    </ul>
+                </div>
+
+                <h3>جدول يومي مفصل</h3>
+                
+                <div class="daily-schedule">
+                    <div class="schedule-card">
+                        <div class="schedule-time">6:30 - 7:00</div>
+                        <div class="schedule-activity">
+                            <strong>الاستيقاظ والنظافة الشخصية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>الاستيقاظ التدريجي</li>
+                                <li>غسيل الوجه واليدين</li>
+                                <li>تنظيف الأسنان</li>
+                                <li>ارتداء الملابس</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">7:00 - 7:30</div>
+                        <div class="schedule-activity">
+                            <strong>الإفطار الصحي</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تناول وجبة متوازنة</li>
+                                <li>شرب الماء أو الحليب</li>
+                                <li>مساعدة في إعداد المائدة</li>
+                                <li>محادثة هادئة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">8:00 - 10:00</div>
+                        <div class="schedule-activity">
+                            <strong>أنشطة التعلم والتنمية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تمارين القراءة والكتابة</li>
+                                <li>أنشطة رياضية خفيفة</li>
+                                <li>ألعاب تعليمية</li>
+                                <li>أنشطة فنية وحرفية</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">10:00 - 10:15</div>
+                        <div class="schedule-activity">
+                            <strong>استراحة ووجبة خفيفة</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تناول فواكه أو خضار</li>
+                                <li>شرب الماء</li>
+                                <li>استراحة في مكان هادئ</li>
+                                <li>تمارين تنفس بسيطة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">10:15 - 11:30</div>
+                        <div class="schedule-activity">
+                            <strong>أنشطة المهارات الحياتية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تعلم مهارات الطبخ البسيطة</li>
+                                <li>ترتيب الغرفة</li>
+                                <li>أنشطة التنظيف</li>
+                                <li>العناية بالحيوانات الأليفة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">11:30 - 12:00</div>
+                        <div class="schedule-activity">
+                            <strong>أنشطة خارجية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>لعب في الحديقة</li>
+                                <li>تمارين المشي</li>
+                                <li>أنشطة اجتماعية</li>
+                                <li>استكشاف البيئة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">12:00 - 12:30</div>
+                        <div class="schedule-activity">
+                            <strong>الغداء</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تناول وجبة غنية بالعناصر</li>
+                                <li>مشاركة في إعداد الطعام</li>
+                                <li>محادثة عائلية</li>
+                                <li>تنظيف المائدة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">12:30 - 14:30</div>
+                        <div class="schedule-activity">
+                            <strong>وقت الراحة والنوم</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>نوم الظهيرة</li>
+                                <li>استراحة هادئة</li>
+                                <li>قراءة أو استماع لموسيقى هادئة</li>
+                                <li>تمارين استرخاء</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">14:30 - 15:00</div>
+                        <div class="schedule-activity">
+                            <strong>وجبة خفيفة مسائية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تناول وجبة خفيفة صحية</li>
+                                <li>شرب الماء</li>
+                                <li>استعداد للأنشطة المسائية</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">15:00 - 16:30</div>
+                        <div class="schedule-activity">
+                            <strong>أنشطة اجتماعية وتطوعية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>زيارة الأصدقاء</li>
+                                <li>أنشطة تطوعية بسيطة</li>
+                                <li>العب مع الأطفال الآخرين</li>
+                                <li>أنشطة مجتمعية</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">16:30 - 17:00</div>
+                        <div class="schedule-activity">
+                            <strong>وقت حر</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>أنشطة مفضلة للطفل</li>
+                                <li>العب الإبداعي</li>
+                                <li>الاستماع للموسيقى</li>
+                                <li>الرسم أو التلوين</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">17:00 - 18:00</div>
+                        <div class="schedule-activity">
+                            <strong>العشاء والتحضير للليل</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>تناول العشاء</li>
+                                <li>تحضير الملابس لليوم التالي</li>
+                                <li>النظافة الشخصية</li>
+                                <li>ترتيب المكان</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">18:00 - 19:30</div>
+                        <div class="schedule-activity">
+                            <strong>أنشطة عائلية</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>محادثات عائلية</li>
+                                <li>مشاهدة برامج تعليمية</li>
+                                <li>ألعاب عائلية</li>
+                                <li>قراءة قصص معاً</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">19:30 - 20:00</div>
+                        <div class="schedule-activity">
+                            <strong>التحضير للنوم</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>حمام دافئ</li>
+                                <li>إجراءات الاسترخاء</li>
+                                <li>قراءة قصة أو استماع لموسيقى هادئة</li>
+                                <li>حوار هادئ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-time">20:00</div>
+                        <div class="schedule-activity">
+                            <strong>وقت النوم</strong>
+                            <ul style="text-align: right; margin-top: 10px;">
+                                <li>الذهاب للسرير في نفس الوقت يومياً</li>
+                                <li>إطفاء الأنوار</li>
+                                <li>خلق جو هادئ ومريح</li>
+                                <li>نوم مريح ومفيد</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>تخصيص البرنامج حسب الاحتياجات</h3>
+                
+                <div class="checklist">
+                    <h4>اعتبارات خاصة:</h4>
+                    <ul>
+                        <li><strong>عمر الطفل:</strong> تعديل الأنشطة وفقاً للمرحلة العمرية</li>
+                        <li><strong>مستوى الإعاقة:</strong> تكيف الأنشطة مع قدرات الطفل</li>
+                        <li><strong>الاهتمامات:</strong> إدراج أنشطة يحبها الطفل</li>
+                        <li><strong>الطاقة اليومية:</strong> تعديل الشدة حسب مستوى النشاط</li>
+                        <li><strong>الأهداف التعليمية:</strong> التركيز على المهارات المطلوبة</li>
+                        <li><strong>الظروف الصحية:</strong> مراعاة أي قيود طبية</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>استخدم جدولاً مصوراً أو ملوناً لمساعدة الطفل على فهم البرنامج اليومي والالتزام به.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guidance-section" id="development">
+            <div class="section-header" onclick="toggleSection('development')">
+                <h2>🌱 نصائح للنمو الصحي والتطور الطبيعي</h2>
+                <span class="expand-icon" id="icon-development">▼</span>
+            </div>
+            <div class="section-content" id="content-development">
+                <h3>مراحل النمو والتطور</h3>
+                
+                <div class="schedule-box">
+                    <h4>المجالات الأساسية للنمو:</h4>
+                    <ul>
+                        <li><strong>النمو الجسدي:</strong> تطوير المهارات الحركية والقوة</li>
+                        <li><strong>النمو المعرفي:</strong> تطوير التفكير والذاكرة</li>
+                        <li><strong>النمو اللغوي:</strong> تطوير مهارات التواصل</li>
+                        <li><strong>النمو الاجتماعي:</strong> بناء العلاقات والتفاعل</li>
+                        <li><strong>النمو العاطفي:</strong> فهم وإدارة المشاعر</li>
+                        <li><strong>النمو الخلقي:</strong> تطوير القيم والسلوك</li>
+                    </ul>
+                </div>
+
+                <h3>استراتيجيات التطوير المعرفي</h3>
+                
+                <div class="example-box">
+                    <p><strong>أنشطة لتطوير الذاكرة:</strong></p>
+                    <ul>
+                        <li>ألعاب الذاكرة بالألوان والأشكال</li>
+                        <li>سلسلة تعليمات بسيطة (أكثر من مهمة)</li>
+                        <li>إعادة سرد القصص بعد سماعها</li>
+                        <li>أنشطة تذكر الأماكن والأشخاص</li>
+                        <li>تمارين تحسين الانتباه</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>أنشطة لتطوير التفكير:</strong></p>
+                    <ul>
+                        <li>حل المشاكل البسيطة خطوة بخطوة</li>
+                        <li>ألعاب التصنيف والتجميع</li>
+                        <li>أنشطة الفروقات والتشابهات</li>
+                        <li>لعب الأدوار والتمثيل</li>
+                        <li>أنشطة التخطيط والتنظيم</li>
+                    </ul>
+                </div>
+
+                <h3>تطوير المهارات الاجتماعية</h3>
+                
+                <div class="therapy-box">
+                    <h4>استراتيجيات التفاعل الاجتماعي:</h4>
+                    <ul>
+                        <li><strong>المحاكاة والتعلم:</strong> تمثيل مواقف اجتماعية مختلفة</li>
+                        <li><strong>التدريب على الإيماءات:</strong> إيماءات الوجه ولغة الجسد</li>
+                        <li><strong>ممارسة الحوار:</strong> محادثات بسيطة ومتدرجة</li>
+                        <li><strong>اللعب الجماعي:</strong> أنشطة تتطلب تعاوناً</li>
+                        <li><strong>التعاطف والمشاعر:</strong> فهم مشاعر الآخرين</li>
+                    </ul>
+                </div>
+
+                <h3>تطوير مهارات التواصل</h3>
+                
+                <div class="checklist">
+                    <h4>أنشطة تطوير اللغة:</h4>
+                    <ul>
+                        <li>قراءة القصص يومياً مع مناقشة المحتوى</li>
+                        <li>غناء الأغاني التعلمية</li>
+                        <li>العب مع الكلمات والأحاجي</li>
+                        <li>ممارسة السرد والوصف</li>
+                        <li>استخدام وسائل التواصل المساعدة (PECS)</li>
+                        <li>تعلم لغة الإشارة البسيطة</li>
+                    </ul>
+                </div>
+
+                <h3>التطور العاطفي والنفسي</h3>
+                
+                <div class="example-box">
+                    <p><strong>تعليم إدارة المشاعر:</strong></p>
+                    <ul>
+                        <li>تسمية المشاعر وتحديدها</li>
+                        <li>تقنيات التنفس للاسترخاء</li>
+                        <li>أنشطة التأمل البسيطة</li>
+                        <li>التعبير عن المشاعر بطرق صحية</li>
+                        <li>بناء الثقة بالنفس</li>
+                        <li>تطوير شعور بالانتماء</li>
+                    </ul>
+                </div>
+
+                <h3>التطور الخلقي والقيمي</h3>
+                
+                <div class="schedule-box">
+                    <h4>تطوير القيم الإيجابية:</h4>
+                    <ul>
+                        <li><strong>الصدق:</strong> أهمية قول الحقيقة</li>
+                        <li><strong>الاحترام:</strong> للآخرين والممتلكات</li>
+                        <li><strong>المسؤولية:</strong> أخذ مسؤولية أفعالنا</li>
+                        <li><strong>التعاون:</strong> العمل مع الآخرين</li>
+                        <li><strong>التسامح:</strong> قبول الاختلافات</li>
+                        <li><strong>الكرم:</strong> مساعدة الآخرين</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>استخدم القصص والأنشطة العملية لغرس القيم بدلاً من الوعظ المباشر.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guidance-section" id="therapy">
+            <div class="section-header" onclick="toggleSection('therapy')">
+                <h2>🏃‍♀️ إرشادات العلاج الطبيعي والعلاج الوظيفي</h2>
+                <span class="expand-icon" id="icon-therapy">▼</span>
+            </div>
+            <div class="section-content" id="content-therapy">
+                <h3>العلاج الطبيعي الأساسي</h3>
+                
+                <div class="therapy-box">
+                    <h4>أهداف العلاج الطبيعي:</h4>
+                    <ul>
+                        <li><strong>تحسين القوة العضلية:</strong> بناء قوة أساسية للمهام اليومية</li>
+                        <li><strong>زيادة المرونة:</strong> منع التيبس وتحسين نطاق الحركة</li>
+                        <li><strong>تطوير التوازن:</strong> الوقوف والمشي بثبات</li>
+                        <li><strong>تحسين التنسيق:</strong> الحركات الدقيقة والمتزامنة</li>
+                        <li><strong>زيادة التحمل:</strong> القدرة على الأنشطة لفترات أطول</li>
+                    </ul>
+                </div>
+
+                <h3>تمارين العلاج الطبيعي في المنزل</h3>
+                
+                <div class="example-box">
+                    <p><strong>تمارين القوة الأساسية:</strong></p>
+                    <ul>
+                        <li>تمارين الضغط الجانبي والعمودي</li>
+                        <li>رفع الساقين والذراعين</li>
+                        <li>تمارين البطن الخفيفة</li>
+                        <li>الجلوس والوقوف المتكرر</li>
+                        <li>تمرين رفع الأثقال الخفيفة</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>تمارين التوازن:</strong></p>
+                    <ul>
+                        <li>الوقوف على قدم واحدة (مع دعم)</li>
+                        <li>المشي على خط مستقيم</li>
+                        <li>تمرين نقل الوزن من قدم لأخرى</li>
+                        <li>تمارين باستخدام كرة التوازن</li>
+                        <li>أنشطة الوقوف على أسطح مختلفة</li>
+                    </ul>
+                </div>
+
+                <h3>العلاج الوظيفي والحياة اليومية</h3>
+                
+                <div class="checklist">
+                    <h4>أنشطة تطوير مهارات الحياة اليومية:</h4>
+                    <ul>
+                        <li><strong>العناية الشخصية:</strong> غسيل الأسنان، ارتداء الملابس</li>
+                        <li><strong>مطبخ بسيط:</strong> إعداد وجبات بسيطة</li>
+                        <li><strong>التنظيف والتنظيم:</strong> ترتيب الغرفة والمساحات</li>
+                        <li><strong>التسوق البسيط:</strong> اختيار العناصر المناسبة</li>
+                        <li><strong>استخدام وسائل النقل:</strong> المشي، الدراجات، المواصلات</li>
+                        <li><strong>إدارة المال:</strong> العد، المقارنة، الشراء</li>
+                    </ul>
+                </div>
+
+                <h3>تطوير المهارات الحركية الدقيقة</h3>
+                
+                <div class="therapy-box">
+                    <h4>أنشطة تحسين المهارات الحركية:</h4>
+                    <ul>
+                        <li><strong>تمارين قبضة اليد:</strong> استخدام كرات المطاط</li>
+                        <li><strong>أنشطة الرسم والتلوين:</strong> باستخدام أدوات مختلفة</li>
+                        <li><strong>ألعاب الليغو والبناء:</strong> تحسين دقة الحركة</li>
+                        <li><strong>تمارين الخياطة البسيطة:</strong> تعليم الخيوط في الإبرة</li>
+                        <li><strong>الألعاب الحركية:</strong> كرات صغيرة وألعاب دقيقة</li>
+                    </ul>
+                </div>
+
+                <h3>استخدام الأدوات المساعدة</h3>
+                
+                <div class="example-box">
+                    <p><strong>أدوات العلاج الطبيعي:</strong></p>
+                    <ul>
+                        <li><strong>كرات التوازن:</strong> لتحسين التوازن والاستقرار</li>
+                        <li><strong>أشرطة المرونة:</strong> لتدريب القوة والمرونة</li>
+                        <li><strong>أحجار التوازن:</strong> لممارسة المشي والتوازن</li>
+                        <li><strong>أداة العلاج الحركي:</strong> لتحسين قوة اليدين</li>
+                        <li><strong>حبل القفز:</strong> لتحسين التنسيق والتوازن</li>
+                    </ul>
+                </div>
+
+                <h3>برامج العلاج المائي</h3>
+                
+                <div class="schedule-box">
+                    <h4>فوائد العلاج المائي:</h4>
+                    <ul>
+                        <li><strong>تقليل الوزن:</strong> الماء يدعم الجسم ويقلل الضغط على المفاصل</li>
+                        <li><strong>تحسين القوة:</strong> مقاومة الماء تبني العضلات</li>
+                        <li><strong>زيادة المرونة:</strong> الماء يسهل الحركة</li>
+                        <li><strong>تحسين التوازن:</strong> البيئة الآمنة للتعلم</li>
+                        <li><strong>الاسترخاء:</strong> تقليل التوتر والقلق</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>ابدأ العلاج الطبيعي بتمارين بسيطة وزد الشدة تدريجياً. الأصعب ليس دائماً الأفضل.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guidance-section" id="monitoring">
+            <div class="section-header" onclick="toggleSection('monitoring')">
+                <h2>📊 المتابعة والتقييم المستمر للتقدم</h2>
+                <span class="expand-icon" id="icon-monitoring">▼</span>
+            </div>
+            <div class="section-content" id="content-monitoring">
+                <h3>أهمية المتابعة والتقييم</h3>
+                
+                <div class="progress-tracker">
+                    <h4>لماذا المتابعة مهمة؟</h4>
+                    <p>المتابعة المستمرة تساعد في:</p>
+                    <ul style="text-align: right; margin-top: 15px;">
+                        <li>تحديد التقدم المحرز</li>
+                        <li>اكتشاف التحديات مبكراً</li>
+                        <li>تعديل الخطط حسب الحاجة</li>
+                        <li>دعم الدافعية والمعنويات</li>
+                        <li>بناء الثقة والاعتزاز</li>
+                    </ul>
+                </div>
+
+                <h3>مؤشرات التقييم المهمة</h3>
+                
+                <div class="schedule-box">
+                    <h4>المجالات الأساسية للمتابعة:</h4>
+                    <ul>
+                        <li><strong>النمو الجسدي:</strong> الوزن، الطول، قوة العضلات</li>
+                        <li><strong>التطور المعرفي:</strong> الانتباه، الذاكرة، حل المشاكل</li>
+                        <li><strong>المهارات اللغوية:</strong> فهم اللغة، التعبير، التواصل</li>
+                        <li><strong>المهارات الاجتماعية:</strong> التفاعل، التعاون، التعاطف</li>
+                        <li><strong>المهارات الحياتية:</strong> العناية الذاتية، العمل المنزلي</li>
+                        <li><strong>الصحة العاطفية:</strong> المزاج، الثقة بالنفس، إدارة الضغط</li>
+                    </ul>
+                </div>
+
+                <h3>أدوات التسجيل والمتابعة</h3>
+                
+                <div class="checklist">
+                    <h4>مقاييس التقييم الأسبوعي:</h4>
+                    <ul>
+                        <li>مقياس تقدم المهارات (من 1 إلى 5)</li>
+                        <li>قائمة إنجازات كل أسبوع</li>
+                        <li>ملاحظات حول السلوك والتعامل</li>
+                        <li>تسجيل التحديات والصعوبات</li>
+                        <li>تقييم مستوى المشاركة والأنشطة</li>
+                        <li>ملاحظات حول التفاعل الاجتماعي</li>
+                    </ul>
+                </div>
+
+                <h3>نظام تقييم بصري</h3>
+                
+                <div class="example-box">
+                    <p><strong>جدول المتابعة الأسبوعي:</strong></p>
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <thead>
+                            <tr style="background: #667eea; color: white;">
+                                <th style="padding: 12px; text-align: center;">المهارة</th>
+                                <th style="padding: 12px; text-align: center;">الأسبوع الأول</th>
+                                <th style="padding: 12px; text-align: center;">الأسبوع الثاني</th>
+                                <th style="padding: 12px; text-align: center;">الأسبوع الثالث</th>
+                                <th style="padding: 12px; text-align: center;">الأسبوع الرابع</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">المشي المستقل</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">استخدام الملعقة</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">التواصل البصري</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐</td>
+                                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">⭐⭐⭐⭐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>تحديد الأهداف SMART</h3>
+                
+                <div class="therapy-box">
+                    <h4>معايير الأهداف الفعالة:</h4>
+                    <ul>
+                        <li><strong>محددة (Specific):</strong> هدف واضح ومحدد</li>
+                        <li><strong>قابلة للقياس (Measurable):</strong> يمكن تتبع التقدم</li>
+                        <li><strong>قابلة للتحقيق (Achievable):</strong> واقعية وواقعية</li>
+                        <li><strong>ذات صلة (Relevant):</strong> مهمة ومفيدة للطفل</li>
+                        <li><strong>محددة الوقت (Time-bound):</strong> لها إطار زمني واضح</li>
+                    </ul>
+                </div>
+
+                <h3>التعديل والتحديث المستمر</h3>
+                
+                <div class="checklist">
+                    <h4>مراجعة الخطة وإعادة التقييم:</h4>
+                    <ul>
+                        <li>مراجعة الأهداف كل أسبوعين</li>
+                        <li>تقييم فعالية الاستراتيجيات المستخدمة</li>
+                        <li>تعديل الأنشطة حسب التقدم</li>
+                        <li>إضافة تحديات جديدة عند الحاجة</li>
+                        <li>تحديد مجالات التحسين</li>
+                        <li>الاحتفال بالإنجازات مهما كانت صغيرة</li>
+                    </ul>
+                </div>
+
+                <h3>إشراك الطفل في عملية التقييم</h3>
+                
+                <div class="example-box">
+                    <p><strong>طرق إشراك الطفل:</strong></p>
+                    <ul>
+                        <li>تشجيع الطفل على تقييم نفسه</li>
+                        <li>استخدام وسائل بصرية مثل الصور والرموز</li>
+                        <li>تسجيل الإنجازات في دفتر شخصي</li>
+                        <li>مقارنة الإنجازات مع المراحل السابقة</li>
+                        <li>تشجيع الفخر بالإنجازات</li>
+                        <li>مناقشة الأهداف القادمة معاً</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <p>تذكر أن كل طفل يتقدم بوتيرته الخاصة. النجاح لا يقاس بالمقارنة مع الآخرين بل بتحسن الحالة الفردية.</p>
+                </div>
+
+                <div class="progress-tracker">
+                    <h4>🎯 مثال على هدف SMART</h4>
+                    <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin: 15px 0; text-align: right;">
+                        <p><strong>الهدف:</strong> تطوير قدرة الطفل على ارتداء قميص بشكل مستقل</p>
+                        <p><strong>التفاصيل:</strong></p>
+                        <ul style="margin: 10px 0;">
+                            <li><strong>محدد:</strong> القدرة على ارتداء قميص بأكمام</li>
+                            <li><strong>قابل للقياس:</strong> 8 مرات من أصل 10 مرات</li>
+                            <li><strong>قابل للتحقيق:</strong> مستند على قدراته الحالية</li>
+                            <li><strong>ذو صلة:</strong> يحسن من قدرته على العناية الذاتية</li>
+                            <li><strong>محدود الوقت:</strong> خلال 4 أسابيع</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>خاتمة الدليل</h3>
+                <div class="example-box">
+                    <p><strong>تذكر دائماً:</strong></p>
+                    <ul>
+                        <li>الطفل هو محور الاهتمام الرئيسي</li>
+                        <li>الصبر والمثابرة أساس النجاح</li>
+                        <li>التقدم قد يكون بطيئاً لكنه ممتد</li>
+                        <li>كل إنجاز مهما كان صغيراً يستحق الاحتفال</li>
+                        <li>أنت لست وحدك في هذه الرحلة</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 20px; font-size: 1.3em; color: #667eea;">
+                        <strong>نتمنى لكم رحلة موفق وتقدم متميز 🌟</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">← العودة للموقع الرئيسي</a>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const content = document.getElementById('content-' + sectionId);
+            const icon = document.getElementById('icon-' + sectionId);
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('rotated');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('rotated');
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const content = document.getElementById('content-' + sectionId);
+            const icon = document.getElementById('icon-' + sectionId);
+            
+            section.scrollIntoView({ behavior: 'smooth' });
+            content.classList.add('active');
+            icon.classList.add('rotated');
+        }
+
+        // إضافة وظيفة طباعة محسنة
+        function printGuide() {
+            // إظهار جميع الأقسام قبل الطباعة
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.add('active');
+            });
+            
+            // طباعة المحتوى
+            window.print();
+            
+            // إعادة إخفاء الأقسام بعد الطباعة
+            setTimeout(() => {
+                sections.forEach((section, index) => {
+                    if (index !== 0) {
+                        section.classList.remove('active');
+                    }
+                });
+            }, 1000);
+        }
+
+        // إعداد الصفحة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            // فتح القسم الأول افتراضياً
+            document.getElementById('content-safety').classList.add('active');
+            document.getElementById('icon-safety').classList.add('rotated');
+            
+            // إضافة زر طباعة عائم
+            const printBtn = document.createElement('button');
+            printBtn.innerHTML = '🖨️ طباعة الإرشادات';
+            printBtn.className = 'back-btn';
+            printBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);';
+            printBtn.onclick = printGuide;
+            document.body.appendChild(printBtn);
+        });
+
+        // تحديث قائمة التنقل أثناء التمرير
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.guidance-section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // تحديث التمييز في التنقل السريع
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.style.opacity = '0.7';
+                item.style.transform = 'scale(1)';
+                if (item.getAttribute('href') === '#' + current) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1.05)';
+                    item.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                }
+            });
+        });
+
+        // إضافة تأثيرات الحركة عند النقر
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-item')) {
+                setTimeout(() => {
+                    const sections = document.querySelectorAll('.guidance-section');
+                    sections.forEach(section => {
+                        const content = section.querySelector('.section-content');
+                        if (content.classList.contains('active')) {
+                            section.style.transform = 'scale(1.02)';
+                            setTimeout(() => {
+                                section.style.transform = 'scale(1)';
+                            }, 200);
+                        }
+                    });
+                }, 300);
+            }
+        });
+
+        // إضافة متابع للمؤشر أثناء التمرير
+        let isScrolling;
+        window.addEventListener('scroll', function() {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(function() {
+                // يمكن إضافة وظائف إضافية عند توقف التمرير
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,607 @@
+/* تصميم الألعاب التفاعلية */
+
+/* الحاوي الرئيسي للألعاب */
+.games-container {
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  box-shadow: var(--shadow-lg);
+  display: none;
+}
+
+.games-container.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* لعبة الذاكرة */
+.memory-game {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.memory-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.memory-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.stat-item {
+  background: var(--primary-100);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--neutral-600);
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-700);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  background: var(--neutral-100);
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-card:hover {
+  border-color: var(--primary-500);
+  transform: translateY(-2px);
+}
+
+.memory-card.flipped {
+  background: var(--primary-500);
+  color: var(--neutral-100);
+  border-color: var(--primary-700);
+}
+
+.memory-card.matched {
+  background: var(--success);
+  color: var(--neutral-100);
+  border-color: var(--success);
+  animation: matchedPulse 0.6s ease-out;
+}
+
+.memory-card-content {
+  font-size: 36px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memory-card.flipped .memory-card-content,
+.memory-card.matched .memory-card-content {
+  opacity: 1;
+}
+
+@keyframes matchedPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* لعبة التعلم */
+.learning-game {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.learning-progress {
+  background: var(--neutral-200);
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: var(--spacing-xl);
+  overflow: hidden;
+}
+
+.learning-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-500), var(--secondary-gold));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.learning-question {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.question-text {
+  font-size: 24px;
+  color: var(--primary-700);
+  margin-bottom: var(--spacing-xl);
+}
+
+.learning-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.learning-option {
+  background: var(--neutral-100);
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.learning-option:hover {
+  border-color: var(--primary-500);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.learning-option.correct {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--neutral-100);
+  animation: correctAnswer 0.6s ease-out;
+}
+
+.learning-option.incorrect {
+  background: var(--error);
+  border-color: var(--error);
+  color: var(--neutral-100);
+  animation: incorrectAnswer 0.6s ease-out;
+}
+
+.learning-option-content {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary-700);
+}
+
+.learning-option.correct .learning-option-content,
+.learning-option.incorrect .learning-option-content {
+  color: var(--neutral-100);
+}
+
+@keyframes correctAnswer {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes incorrectAnswer {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* لعبة التحفيز الحسي */
+.sensory-game {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sensory-stimulus {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background: var(--primary-100);
+  border-radius: var(--radius-lg);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sensory-stimulus:hover {
+  background: var(--primary-500);
+  color: var(--neutral-100);
+}
+
+.stimulus-visual {
+  font-size: 120px;
+  animation: pulse 2s infinite;
+}
+
+.stimulus-audio {
+  font-size: 80px;
+  color: var(--primary-700);
+}
+
+.stimulus-text {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--primary-700);
+}
+
+.sensory-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.sensory-btn {
+  background: var(--secondary-gold);
+  color: var(--neutral-900);
+  border: none;
+  padding: 12px var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sensory-btn:hover {
+  background: #e6b025;
+  transform: translateY(-2px);
+}
+
+.sensory-btn.active {
+  background: var(--primary-500);
+  color: var(--neutral-100);
+}
+
+/* لعبة التطابق */
+.matching-game {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.matching-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.matching-item {
+  aspect-ratio: 1;
+  background: var(--neutral-100);
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.matching-item:hover {
+  border-color: var(--primary-500);
+  transform: translateY(-2px);
+}
+
+.matching-item.selected {
+  background: var(--primary-100);
+  border-color: var(--primary-500);
+  animation: selectedPulse 1s infinite;
+}
+
+.matching-item.matched {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--neutral-100);
+}
+
+.matching-item-content {
+  font-size: 32px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.matching-item.selected .matching-item-content,
+.matching-item.matched .matching-item-content {
+  opacity: 1;
+}
+
+@keyframes selectedPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(71, 181, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(71, 181, 255, 0);
+  }
+}
+
+/* رسائل النجاح والفشل */
+.game-message {
+  text-align: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-lg) 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.game-message.success {
+  background: var(--success);
+  color: var(--neutral-100);
+  animation: successMessage 0.6s ease-out;
+}
+
+.game-message.error {
+  background: var(--error);
+  color: var(--neutral-100);
+  animation: errorMessage 0.6s ease-out;
+}
+
+.game-message.info {
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border: 1px solid var(--primary-500);
+  animation: infoMessage 0.6s ease-out;
+}
+
+@keyframes successMessage {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes errorMessage {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes infoMessage {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* أزرار تحكم الألعاب */
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
+}
+
+.game-btn {
+  background: var(--primary-500);
+  color: var(--neutral-100);
+  border: none;
+  padding: 12px var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-btn:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+}
+
+.game-btn:disabled {
+  background: var(--neutral-200);
+  color: var(--neutral-600);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.game-btn.secondary {
+  background: var(--neutral-100);
+  color: var(--neutral-900);
+  border: 1px solid var(--neutral-200);
+}
+
+.game-btn.secondary:hover {
+  background: var(--primary-100);
+  border-color: var(--primary-500);
+}
+
+/* تأثيرات خاصة للألعاب */
+.game-celebration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--success);
+  color: var(--neutral-100);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  z-index: 1000;
+  animation: celebrationPop 1s ease-out;
+}
+
+@keyframes celebrationPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primary-500);
+  animation: confettiFall 3s linear infinite;
+}
+
+.confetti-piece:nth-child(odd) {
+  background: var(--secondary-gold);
+  animation-delay: 0.5s;
+}
+
+.confetti-piece:nth-child(even) {
+  background: var(--success);
+  animation-delay: 1s;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .memory-grid,
+  .matching-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .learning-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .memory-stats {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .stimulus-visual {
+    font-size: 80px;
+  }
+  
+  .stimulus-audio {
+    font-size: 60px;
+  }
+  
+  .stimulus-text {
+    font-size: 24px;
+  }
+  
+  .game-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .game-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-grid,
+  .matching-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .memory-card-content {
+    font-size: 24px;
+  }
+  
+  .learning-option-content {
+    font-size: 36px;
+  }
+  
+  .matching-item-content {
+    font-size: 24px;
+  }
+  
+  .stimulus-visual {
+    font-size: 60px;
+  }
+  
+  .stimulus-audio {
+    font-size: 40px;
+  }
+  
+  .stimulus-text {
+    font-size: 20px;
+  }
+  
+  .games-container {
+    padding: var(--spacing-md);
+  }
+}

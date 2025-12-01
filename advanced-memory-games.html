@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألعاب الذاكرة والتركيز - دكتورة رحمة ميسر</title>
+    <meta name="description" content="مجموعة ألعاب تفاعلية لتطوير مهارات الذاكرة والتركيز للأطفال ذوي الاحتياجات الخاصة">
+    <meta name="keywords"="ألعاب تعليمية, ذاكرة, تركيز, ذوي الاحتياجات الخاصة, دكتورة رحمة ميسر">
+    <meta name="author" content="دكتورة رحمة ميسر">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    
+    <style>
+        /* متغيرات CSS */
+        :root {
+            --primary-color: #3B82F6;
+            --success-color: #10B981;
+            --warning-color: #F59E0B;
+            --error-color: #EF4444;
+            --purple-color: #8B5CF6;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --text-muted: #9CA3AF;
+            --border-radius: 20px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-purple: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            --gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            --gradient-orange: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', 'Tajawal', Arial, sans-serif;
+            background: var(--gradient-bg);
+            min-height: 100vh;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* الهيدر */
+        .page-header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* قائمة الألعاب */
+        .games-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--purple-color));
+            border-radius: 2px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-blue);
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .game-card:hover::before {
+            background: var(--gradient-purple);
+        }
+
+        .game-icon {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .game-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-align: center;
+            min-height: 60px;
+        }
+
+        .game-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .game-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .game-features li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .game-link {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--gradient-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .game-link:hover {
+            background: var(--gradient-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            color: white;
+        }
+
+        .game-link:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* بطاقة اللعبة المحسنة */
+        .enhanced-card::before {
+            background: var(--gradient-green);
+        }
+
+        .enhanced-card:hover::before {
+            background: var(--gradient-purple);
+        }
+
+        .enhanced-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gradient-green);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        /* معلومات إضافية */
+        .additional-info {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* التصميم المتجاوب */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .game-card {
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .games-section {
+                padding: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .game-card {
+                padding: 1.5rem;
+            }
+
+            .games-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* إعدادات إمكانية الوصول */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* تباين الألوان العالي */
+        @media (prefers-contrast: high) {
+            .game-card {
+                border: 3px solid var(--text-dark);
+            }
+
+            .game-link {
+                background: #000;
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر -->
+        <header class="page-header">
+            <h1 class="page-title">
+                <span>🧠</span>
+                ألعاب الذاكرة والتركيز
+                <span>🎯</span>
+            </h1>
+            <p class="page-subtitle">
+                مجموعة ألعاب تفاعلية ممتعة ومطورة خصيصاً للأطفال ذوي الاحتياجات الخاصة 
+                لتطوير مهارات الذاكرة والتركيز والتعرف على الأشكال والألوان
+            </p>
+        </header>
+
+        <!-- قائمة الألعاب -->
+        <main class="games-section">
+            <h2 class="section-title">الألعاب المتاحة (2 ألعاب)</h2>
+            
+            <div class="games-grid">
+                <!-- لعبة المتاهة التفاعلية -->
+                <div class="game-card enhanced-card">
+                    <div class="enhanced-badge">جديد 🌟</div>
+                    <div class="game-icon">🧩</div>
+                    <h3 class="game-title">لعبة المتاهة التفاعلية</h3>
+                    <p class="game-description">
+                        لعبة متاهة مثيرة من 5 مستويات متدرجة الصعوبة تساعد الأطفال على تطوير مهارات التخطيط 
+                        والتركيز والحل المنطقي من خلال مساعدة القطة في الوصول للهدف.
+                    </p>
+                    <ul class="game-features">
+                        <li>5 مستويات متدرجة الصعوبة (سهل، متوسط، صعب، خبير، أسطوري)</li>
+                        <li>تحكم بأزرار الأسهم أو لوحة المفاتيح</li>
+                        <li>نظام تتبع الوقت وعدد الخطوات</li>
+                        <li>تأثيرات بصرية ممتعة وجذابة</li>
+                        <li>شخصيات محببة (قطة وهدف العشب)</li>
+                        <li>رسائل تشجيعية وتفاعلية</li>
+                        <li>إمكانية اللعب المتكرر لتحسين الأداء</li>
+                        <li>واجهة ملونة ومفهومة للأطفال</li>
+                    </ul>
+                    <a href="maze-game-3levels.html" class="game-link" target="_blank" rel="noopener">
+                        🧩 ابدأ اللعب الآن
+                    </a>
+                </div>
+
+                <!-- لعبة أوجد التشابه المحسنة -->
+                <div class="game-card enhanced-card">
+                    <div class="enhanced-badge">محسن ✨</div>
+                    <div class="game-icon">🎯</div>
+                    <h3 class="game-title">أوجد التشابه بين الصور - النسخة المحسنة</h3>
+                    <p class="game-description">
+                        لعبة تفاعلية متطورة تتضمن 5 مستويات متدرجة الصعوبة مع صور حقيقية عالية الجودة 
+                        ونظام نقاط متقدم ورسائل تشجيعية متنوعة مصممة خصيصاً للأطفال ذوي الاحتياجات الخاصة.
+                    </p>
+                    <ul class="game-features">
+                        <li>5 مستويات متدرجة الصعوبة (2-6 خيارات)</li>
+                        <li>صور حقيقية واضحة وعالية الجودة</li>
+                        <li>نظام نقاط وتقديرات متقدم</li>
+                        <li>رسائل تشجيعية متنوعة</li>
+                        <li>تصميم متجاوب وإمكانية وصول عالية</li>
+                        <li>دعم لوحة المفاتيح والتنقل بالكيبورد</li>
+                        <li>ألوان متباينة وأحجام كبيرة</li>
+                        <li>تأثيرات بصرية واضحة ومفهومة</li>
+                    </ul>
+                    <a href="find-similarity-game-5levels.html" class="game-link" target="_blank" rel="noopener">
+                        🎮 ابدأ اللعب الآن
+                    </a>
+                </div>
+
+
+
+                <!-- إضافة بطاقة للعبة القديمة (اختياري) -->
+                <!-- <div class="game-card">
+                    <div class="game-icon">🎨</div>
+                    <h3 class="game-title">أوجد التشابه بين الصور - النسخة الأساسية</h3>
+                    <p class="game-description">
+                        النسخة الأساسية من لعبة أوجد التشابه باستخدام رموز تعبيرية.
+                    </p>
+                    <ul class="game-features">
+                        <li>5 مستويات أساسية</li>
+                        <li>رموز تعبيرية متنوعة</li>
+                        <li>واجهة بسيطة وواضحة</li>
+                        <li>مناسبة للمبتدئين</li>
+                    </ul>
+                    <a href="find-similarity-game.html" class="game-link" target="_blank" rel="noopener">
+                        🎯 اللعب الأساسي
+                    </a>
+                </div> -->
+            </div>
+        </main>
+
+        <!-- معلومات إضافية -->
+        <section class="additional-info">
+            <h2 class="info-title">مميزات الألعاب التعليمية</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon">👁️</div>
+                    <div class="info-text">
+                        <strong>تطوير البصر</strong><br>
+                        تحسين مهارات التعرف على الأشكال والألوان والتفاصيل
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🧠</div>
+                    <div class="info-text">
+                        <strong>تقوية الذاكرة</strong><br>
+                        تدريب الدماغ على حفظ وتذكر المعلومات بشكل فعال
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🎯</div>
+                    <div class="info-text">
+                        <strong>تحسين التركيز</strong><br>
+                        زيادة القدرة على التركيز والانتباه لفترات أطول
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">💪</div>
+                    <div class="info-text">
+                        <strong>الثقة بالنفس</strong><br>
+                        بناء الثقة من خلال الإنجازات والتقدم التدريجي
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // تحسينات إمكانية الوصول
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة support للـ keyboard navigation
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                card.setAttribute('tabindex', '0');
+                card.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const link = card.querySelector('.game-link');
+                        if (link) {
+                            link.click();
+                        }
+                    }
+                });
+            });
+
+            // إضافة تأثيرات بصرية عند التحميل
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.6s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                });
+            }, observerOptions);
+
+            gameCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
